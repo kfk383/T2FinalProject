@@ -26,23 +26,30 @@ void draw() {
   if (! onStart) {
     fill(100, 0, 0);
   } else {
-    fill(120, 0, 0);
+    fill(130, 0, 0);
   }
   rect(startX, startY, buttonW, buttonH);
   if (! onSettings) {
     fill(100, 0, 0);
   } else {
-    fill(120, 0, 0);
+    fill(130, 0, 0);
   }
   rect(setX, setY, buttonW, buttonH);
   if (! onInstructions) {
     fill(100, 0, 0);
   } else {
-    fill(120, 0, 0);
+    fill(130, 0, 0);
   }
   rect(insX, insY, buttonW, buttonH);
-  textSize(32);
   
+  textSize(28);
+  fill(0, 255, 204);
+  text("Start", 305, 315);
+  fill(0, 255, 204);
+  text("Instructions", 260, 440);
+  fill(0, 255, 204);
+  text("Settings", 285, 565);
+  fill(0, 255, 204);
 }
 void updateMouse(int x, int y) {
   onStart = onSettings = onInstructions = false;
