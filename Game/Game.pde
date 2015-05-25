@@ -4,6 +4,7 @@ int setX, setY; // the location of the settings button
 color buttonColor, highlightColor;
 int buttonW = 225;
 int buttonH = 60;
+boolean onStart, onInstructions, onSettings;
 PImage bImg;
 
 void setup() {
@@ -12,8 +13,6 @@ void setup() {
   bImg = loadImage("titlepg.png");
   size(screenWidth, screenHeight);
   bImg.resize(screenWidth, screenHeight);
-  buttonColor = color(645);
-  highlightColor = color(641);
   startX = 225;
   startY = 275;
   insX = 225;
@@ -24,21 +23,23 @@ void setup() {
 void draw() {
   updateMouse(mouseX, mouseY);
   background(bImg);
-  stroke(0);
-  fill(buttonColor);
-  rect(startX, startY, buttonW, buttonH);
-  stroke(0);
-  fill(buttonColor);
-  rect(setX, setY, buttonW, buttonH);
-  stroke(0);
-  fill(buttonColor);
-  rect(insX, insY, buttonW, buttonH);
+  if (! onStart) {
+    fill(100, 0, 0);
+  } else {
+    fill(120, 0, 0);
+  }rect(startX, startY, buttonW, buttonH);
+  if (! onSettings) {
+    fill(100, 0, 0);
+  } else {
+    fill(120, 0, 0);
+  }rect(setX, setY, buttonW, buttonH);
+  if (! onInstructions) {
+    fill(100, 0, 0);
+  } else {
+    fill(120, 0, 0);
+  }rect(insX, insY, buttonW, buttonH);
 }
 void updateMouse(int x, int y) {
-}
-String overButton(int x, int y) {
-  String button = "";
-
-  return button;
+  
 }
 
