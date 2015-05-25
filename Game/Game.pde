@@ -27,19 +27,33 @@ void draw() {
     fill(100, 0, 0);
   } else {
     fill(120, 0, 0);
-  }rect(startX, startY, buttonW, buttonH);
+  }
+  rect(startX, startY, buttonW, buttonH);
   if (! onSettings) {
     fill(100, 0, 0);
   } else {
     fill(120, 0, 0);
-  }rect(setX, setY, buttonW, buttonH);
+  }
+  rect(setX, setY, buttonW, buttonH);
   if (! onInstructions) {
     fill(100, 0, 0);
   } else {
     fill(120, 0, 0);
-  }rect(insX, insY, buttonW, buttonH);
+  }
+  rect(insX, insY, buttonW, buttonH);
+  textSize(32);
+  
 }
 void updateMouse(int x, int y) {
-  
+  onStart = onSettings = onInstructions = false;
+  if (x >= startX && y >= startY && x <= startX+buttonW && y <= startY+buttonH) {
+    onStart=true;
+  }
+  if (x >= insX && y >= insY && x <= insX+buttonW && y <= insY+buttonH) {
+    onInstructions = true;
+  }
+  if (x >= setX && y >= setY && x <= setX+buttonW && y <= setY+buttonH) {
+    onSettings = true;
+  }
 }
 
