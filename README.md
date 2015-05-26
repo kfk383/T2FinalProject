@@ -14,6 +14,8 @@ Monday, May 25
 - Started the character class; no functions yet
  
 Tuesday, May 26
+- Searching for sprites and backgrounds for game
+- Discussed team name :)
+- Working out logistics and controls of game (work on game first; then work on instructions and settings)
 
- 
-
+Wednesday, May 27
