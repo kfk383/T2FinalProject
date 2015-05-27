@@ -17,15 +17,6 @@ class Character {
   int SE_WALKING = 8;
   int dy, dx; 
 
-  void moving(){
-    dx=dy=0;
-    if (mode%4 == 1){
-      dx +=2;
-      dy +=1;
-    }if (mode%4 == 2){
-      dx -=
-    }
-  }
  
 }
 
