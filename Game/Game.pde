@@ -41,7 +41,7 @@ void draw() {
     fill(130, 0, 0);
   }
   rect(insX, insY, buttonW, buttonH);
-  
+
   textSize(28);
   fill(0, 255, 204);
   text("Start", 305, 315);
