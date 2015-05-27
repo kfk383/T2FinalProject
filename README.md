@@ -19,3 +19,6 @@ Tuesday, May 26
 - Working out logistics and controls of game (work on game first; then work on instructions and settings)
 
 Wednesday, May 27
+- Continuing looking for game backgrounds
+- Talked about layout of game (levels, difficulty, etc)
+- Working on making sprites for worker/customers
