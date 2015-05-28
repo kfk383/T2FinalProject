@@ -19,3 +19,12 @@ Tuesday, May 26
 - Working out logistics and controls of game (work on game first; then work on instructions and settings)
 
 Wednesday, May 27
+- Continuing looking for game backgrounds
+- Working on sprites for characters and customers.
+- Researched how to use sprites in animations (https://processing.org/examples/animatedsprite.html)
+- Added basic methods for characters and customers
+
+Thursday, May 28
+- Working on background images
+- Made first character sprite for the player
+- Cut and cropped individual sprites for tools.
