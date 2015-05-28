@@ -20,5 +20,11 @@ Tuesday, May 26
 
 Wednesday, May 27
 - Continuing looking for game backgrounds
-- Talked about layout of game (levels, difficulty, etc)
-- Working on making sprites for worker/customers
+- Working on sprites for characters and customers.
+- Researched how to use sprites in animations (https://processing.org/examples/animatedsprite.html)
+- Added basic methods for characters and customers
+
+Thursday, May 28
+- Working on background images
+- Made first character sprite for the player
+- Cut and cropped individual sprites for tools.
