@@ -3,11 +3,14 @@ class Customers {
   boolean hasOrdered;
   int itemOrdered;
 
-void go(){
-  if (patience == 0){
-    leave(); // will remove the character and his/her order from the screen
-  }
+  void go(){
+    int s = second();
+    if (s%30 == 0){
+      patience--;
+    }if (patience == 0){
+      leave(); // will remove the character and his/her order from the screen
     }
+  }
   void leave(){
 
   }

@@ -18,7 +18,7 @@ class Customers {
     return itemOrdered == item;
   }
   int pay(){
-    return willPay();
+    return willPay;
   }
 
 
