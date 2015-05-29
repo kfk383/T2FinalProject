@@ -27,4 +27,8 @@ Wednesday, May 27
 Thursday, May 28
 - Working on background images
 - Made first character sprite for the player
-- Cut and cropped individual sprites for tools.
+- Cut and cropped individual sprites for kitchen appliances.
+
+Friday, May 29
+- Continuing working on background images
+- Working on other character sprites; searching for customer sprites.
