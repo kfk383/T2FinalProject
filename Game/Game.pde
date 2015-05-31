@@ -4,7 +4,7 @@ int setX, setY; // the location of the settings button
 color buttonColor, highlightColor;
 int buttonW = 225;
 int buttonH = 60;
-boolean onStart, onInstructions, onSettings;
+boolean onStart, onInstructions, onSettings, clicked;
 PImage bImg;
 
 void setup() {
@@ -25,18 +25,24 @@ void draw() {
   background(bImg);
   if (! onStart) {
     fill(100, 0, 0);
+  } else if (clicked) {
+    fill(130, 30, 30);
   } else {
     fill(130, 0, 0);
   }
   rect(startX, startY, buttonW, buttonH);
   if (! onSettings) {
     fill(100, 0, 0);
+  } else if (clicked) {
+    fill(130, 30, 30);
   } else {
     fill(130, 0, 0);
   }
   rect(setX, setY, buttonW, buttonH);
   if (! onInstructions) {
     fill(100, 0, 0);
+  } else if (clicked) {
+    fill(130, 30, 30);
   } else {
     fill(130, 0, 0);
   }
@@ -62,5 +68,11 @@ void updateMouse(int x, int y) {
   if (x >= setX && y >= setY && x <= setX+buttonW && y <= setY+buttonH) {
     onSettings = true;
   }
+}
+void mousePressed() {
+  clicked = true;
+}
+void mouseReleased() {
+  clicked = false;
 }
 
