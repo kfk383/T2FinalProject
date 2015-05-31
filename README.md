@@ -33,3 +33,7 @@ Friday, May 29
 - Continuing working on background images
 - Working on other character sprites; searching for customer sprites.
 - Added button features to main menu
+
+Saturday, May 30
+- Got sprites for pots/pans and some ingredients; working on sprites for characters
+- Working on game components (ie. recipes)
