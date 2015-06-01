@@ -6,6 +6,7 @@ int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 PImage bImg;
+Start game;
 
 void setup() {
   int screenWidth = 1200;
@@ -56,6 +57,11 @@ void draw() {
   fill(0, 255, 204);
   text("Settings", 285, 565);
   fill(0, 255, 204);
+  
+  if (clicked && onStart){
+      game = new Start();
+      game.go();
+  }
 }
 void updateMouse(int x, int y) {
   onStart = onSettings = onInstructions = false;
