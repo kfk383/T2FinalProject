@@ -37,3 +37,7 @@ Friday, May 29
 Saturday, May 30
 - Got sprites for pots/pans and some ingredients; working on sprites for characters
 - Working on game components (ie. recipes)
+
+Sunday, May 30
+- Removing backgrounds on appliances characters
+- Starting on animations
