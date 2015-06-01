@@ -75,6 +75,7 @@ void draw() {
   } else if (mode == START) {
     background(startImg);
   } else if (mode == SETTINGS) {
+    displaySettings();
   } else if (mode == INSTRUCTIONS) {
     displayInstructions();
   }
@@ -84,6 +85,14 @@ void displayInstructions() {
   rect(50, 50, width-100, height-100);
   fill(255);
   text("Instructions", 100, 100);
+  text("Press the spacebar to exit to main menu", 100, 600);
+}
+void displaySettings() {
+  fill(0, 0, 0, 100);
+  rect(50, 50, width-100, height-100);
+  fill(255);
+  text("Settings", 100, 100);
+  text("Press the spacebar to exit to main menu", 100, 600);
 }
 void updateMouse(int x, int y) {
   onStart = onSettings = onInstructions = false;
@@ -102,5 +111,10 @@ void mousePressed() {
 }
 void mouseReleased() {
   clicked = false;
+}
+void keyPressed(){
+  if (keyCode == 32){
+     mode = MENU; 
+  }
 }
 
