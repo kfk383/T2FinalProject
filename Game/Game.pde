@@ -5,63 +5,85 @@ color buttonColor, highlightColor;
 int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
-PImage bImg;
-Start game;
+PImage menuImg, startImg;
+int mode;
+int MENU = 0;
+int START = 1;
+int SETTINGS = 2;
+int INSTRUCTIONS = 3;
 
 void setup() {
   int screenWidth = 1200;
   int screenHeight = 700;
-  bImg = loadImage("titlepg.png");
+  menuImg = loadImage("titlepg.png");
+  startImg = loadImage("background1.png");
   size(screenWidth, screenHeight);
-  bImg.resize(screenWidth, screenHeight);
+  menuImg.resize(screenWidth, screenHeight);
+  startImg.resize(screenWidth, screenHeight);
   startX = 225;
   startY = 275;
   insX = 225;
   insY = 400;
   setX = 225;
   setY = 525;
+  mode = MENU;
 }
 void draw() {
-  updateMouse(mouseX, mouseY);
-  background(bImg);
-  if (! onStart) {
-    fill(100, 0, 0);
-  } else if (clicked) {
-    fill(130, 30, 30);
-  } else {
-    fill(130, 0, 0);
-  }
-  rect(startX, startY, buttonW, buttonH);
-  if (! onSettings) {
-    fill(100, 0, 0);
-  } else if (clicked) {
-    fill(130, 30, 30);
-  } else {
-    fill(130, 0, 0);
-  }
-  rect(setX, setY, buttonW, buttonH);
-  if (! onInstructions) {
-    fill(100, 0, 0);
-  } else if (clicked) {
-    fill(130, 30, 30);
-  } else {
-    fill(130, 0, 0);
-  }
-  rect(insX, insY, buttonW, buttonH);
+  if (mode == MENU) {
+    updateMouse(mouseX, mouseY);
+    background(menuImg);
+    if (! onStart) {
+      fill(100, 0, 0);
+    } else if (clicked) {
+      fill(130, 30, 30);
+    } else {
+      fill(130, 0, 0);
+    }
+    rect(startX, startY, buttonW, buttonH);
+    if (! onSettings) {
+      fill(100, 0, 0);
+    } else if (clicked) {
+      fill(130, 30, 30);
+    } else {
+      fill(130, 0, 0);
+    }
+    rect(setX, setY, buttonW, buttonH);
+    if (! onInstructions) {
+      fill(100, 0, 0);
+    } else if (clicked) {
+      fill(130, 30, 30);
+    } else {
+      fill(130, 0, 0);
+    }
+    rect(insX, insY, buttonW, buttonH);
+    textSize(28);
+    fill(0, 255, 204);
+    text("Start", 305, 315);
+    fill(0, 255, 204);
+    text("Instructions", 260, 440);
+    fill(0, 255, 204);
+    text("Settings", 285, 565);
+    fill(0, 255, 204);
 
-  textSize(28);
-  fill(0, 255, 204);
-  text("Start", 305, 315);
-  fill(0, 255, 204);
-  text("Instructions", 260, 440);
-  fill(0, 255, 204);
-  text("Settings", 285, 565);
-  fill(0, 255, 204);
-  
-  if (clicked && onStart){
-      game = new Start();
-      game.go();
+    if (clicked && onStart) {
+      mode = START;
+    } else if (clicked && onSettings) {
+      mode = SETTINGS;
+    } else if (clicked && onInstructions) {
+      mode = INSTRUCTIONS;
+    }
+  } else if (mode == START) {
+    background(startImg);
+  } else if (mode == SETTINGS) {
+  } else if (mode == INSTRUCTIONS) {
+    displayInstructions();
   }
+}
+void displayInstructions() {
+  fill(0, 0, 0, 100);
+  rect(50, 50, width-100, height-100);
+  fill(255);
+  text("Instructions", 100, 100);
 }
 void updateMouse(int x, int y) {
   onStart = onSettings = onInstructions = false;
