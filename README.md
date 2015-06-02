@@ -41,3 +41,6 @@ Saturday, May 30
 Sunday, May 30
 - Removing backgrounds on appliances characters
 - Starting on animations
+
+Tuesday, June 2
+- Editing/coloring sprites
