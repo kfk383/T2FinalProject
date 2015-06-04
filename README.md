@@ -44,3 +44,4 @@ Sunday, May 30
 
 Tuesday, June 2
 - Editing/coloring sprites
+- Worked on animations
