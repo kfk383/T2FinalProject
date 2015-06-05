@@ -45,3 +45,6 @@ Sunday, May 30
 Tuesday, June 2
 - Editing/coloring sprites
 - Worked on animations
+
+Thursday, June 3
+- Added in shadows/3D effect to sprites
