@@ -11,6 +11,9 @@ int MENU = 0;
 int START = 1;
 int SETTINGS = 2;
 int INSTRUCTIONS = 3;
+int xSpeed = 2;
+int ySpeed = 2;
+
 
 void setup() {
   int screenWidth = 1200;
@@ -85,14 +88,16 @@ void displayInstructions() {
   rect(50, 50, width-100, height-100);
   fill(255);
   text("Instructions", 100, 100);
-  text("Press the spacebar to exit to main menu", 100, 600);
+  textSize(18);
+  text("Press the spacebar to exit to the main menu", 100, 600);
 }
 void displaySettings() {
   fill(0, 0, 0, 100);
   rect(50, 50, width-100, height-100);
   fill(255);
   text("Settings", 100, 100);
-  text("Press the spacebar to exit to main menu", 100, 600);
+  textSize(18);
+  text("Press the spacebar to exit to the main menu", 100, 600);
 }
 void updateMouse(int x, int y) {
   onStart = onSettings = onInstructions = false;
@@ -112,9 +117,11 @@ void mousePressed() {
 void mouseReleased() {
   clicked = false;
 }
-void keyPressed(){
-  if (keyCode == 32){
-     mode = MENU; 
-  }
+void keyPressed() {
+  if (keyCode == 32) {
+    mode = MENU;
+  }//else if (keyCode == 32){
+  //mode = INSTRUCTIONS; 
+  //}
 }
 
