@@ -6,6 +6,7 @@ int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 PImage menuImg, startImg;
+PImage board, iron, bowl, pot; 
 int mode;
 int MENU = 0;
 int START = 1;
@@ -74,6 +75,14 @@ void draw() {
     }
   } else if (mode == START) {
     background(startImg);
+    board=loadImage("board.png");
+    //image(board,0,0);
+   iron=loadImage("iron.png");
+  image(iron,0,300);
+  bowl=loadImage("bowl.png");
+  image(bowl, 345,315);
+  pot=loadImage("pot.png");
+  image(pot,160,310); 
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
