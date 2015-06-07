@@ -1,3 +1,7 @@
+//GOOD LOK FINAL PROJECT
+//KRISTI FOK AND LABIBA CHOWDHURY
+//PERIOD 6
+//==========================================CONSTANTS AND SETUP FOR GAME=============================
 int startX, startY; // the location of the start button
 int insX, insY; // the location of the instructions button
 int setX, setY; // the location of the settings button
@@ -32,6 +36,7 @@ void setup() {
   setY = 525;
   mode = MENU;
 }
+//===========================================DRAW FUNCTION=====================================
 void draw() {
   if (mode == MENU) {
     updateMouse(mouseX, mouseY);
@@ -92,10 +97,11 @@ void draw() {
     displayInstructions();
   }
 }
+//===============================SHOW INSTRUCTIONS AND SETTINGS PAGES=============================
 void displayInstructions() {
   fill(0, 0, 0, 100);
   rect(50, 50, width-100, height-100);
-  fill(255);
+  fill(255); 
   text("Instructions", 100, 100);
   textSize(18);
   text("Press the spacebar to exit to the main menu", 100, 600);
@@ -108,10 +114,11 @@ void displaySettings() {
   textSize(18);
   text("Press the spacebar to exit to the main menu", 100, 600);
 }
+//==============================MOUSE COORDINATES=====================================
 void updateMouse(int x, int y) {
   onStart = onSettings = onInstructions = false;
   if (x >= startX && y >= startY && x <= startX+buttonW && y <= startY+buttonH) {
-    onStart=true;
+    onStart = true;
   }
   if (x >= insX && y >= insY && x <= insX+buttonW && y <= insY+buttonH) {
     onInstructions = true;
@@ -120,6 +127,7 @@ void updateMouse(int x, int y) {
     onSettings = true;
   }
 }
+//===============================PLAYER INTERACTION===================================
 void mousePressed() {
   clicked = true;
 }
