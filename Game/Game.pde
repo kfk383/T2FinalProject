@@ -1,4 +1,4 @@
-//GOOD LOK FINAL PROJECT
+  //GOOD LOK FINAL PROJECT
 //KRISTI FOK AND LABIBA CHOWDHURY
 //PERIOD 6
 //==========================================CONSTANTS AND SETUP FOR GAME=============================
@@ -11,6 +11,7 @@ int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 PImage menuImg, startImg;
 PImage iron, pot; 
+PImage ingredients;
 int mode;
 int MENU = 0;
 int START = 1;
@@ -87,6 +88,7 @@ void draw() {
     image(iron, 0, 300);
     pot = loadImage("pot.png");
     image(pot, 160, 310);
+   // image(ingredients[50],0,0); idr how to do this
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
