@@ -84,16 +84,19 @@ void draw() {
   } else if (mode == START) {
     background(startImg);
     iron = loadImage("iron.png");
-    iron.resize(76,100);
+    iron.resize(76, 100);
     image(iron, 345, 280);
     pot = loadImage("pot.png");
-    pot.resize(87,65);
+    pot.resize(87, 65);
     image(pot, 205, 350);
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
     displayInstructions();
-  }
+  }  
+  textSize(16);
+  fill(0, 0, 0);
+  text(""+mouseX+","+mouseY, 20, 20);
 }
 //===============================SHOW INSTRUCTIONS AND SETTINGS PAGES=============================
 void displayInstructions() {
