@@ -78,14 +78,12 @@ void draw() {
     }
   } else if (mode == START) {
     background(startImg);
-    board=loadImage("board.png");
-    //image(board,0,0);
-   iron=loadImage("iron.png");
-  image(iron,0,300);
-  bowl=loadImage("bowl.png");
-  image(bowl, 345,315);
-  pot=loadImage("pot.png");
-  image(pot,160,310); 
+    iron=loadImage("iron.jpg");
+    image(iron, 0, 300);
+    bowl=loadImage("bowl.jpg");
+    image(bowl, 345, 315);
+    pot=loadImage("pot.jpg");
+    image(pot, 160, 310);
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
