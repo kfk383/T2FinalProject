@@ -1,3 +1,7 @@
+//GOOD LOK FINAL PROJECT
+//KRISTI FOK AND LABIBA CHOWDHURY
+//PERIOD 6
+//==========================================CONSTANTS AND SETUP FOR GAME=============================
 int startX, startY; // the location of the start button
 int insX, insY; // the location of the instructions button
 int setX, setY; // the location of the settings button
@@ -6,7 +10,7 @@ int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 PImage menuImg, startImg;
-PImage board, iron, bowl, pot; 
+PImage iron, pot; 
 int mode;
 int MENU = 0;
 int START = 1;
@@ -32,6 +36,7 @@ void setup() {
   setY = 525;
   mode = MENU;
 }
+//===========================================DRAW FUNCTION=====================================
 void draw() {
   if (mode == MENU) {
     updateMouse(mouseX, mouseY);
@@ -78,22 +83,35 @@ void draw() {
     }
   } else if (mode == START) {
     background(startImg);
+<<<<<<< HEAD
     iron=loadImage("iron.jpg");
     image(iron, 0, 300);
     bowl=loadImage("bowl.jpg");
     image(bowl, 345, 315);
     pot=loadImage("pot.jpg");
     image(pot, 160, 310);
+=======
+    iron = loadImage("iron.png");
+    iron.resize(76, 100);
+    image(iron, 345, 280);
+    pot = loadImage("pot.png");
+    pot.resize(87, 65);
+    image(pot, 205, 350);
+>>>>>>> c954a876641dd59d7a7e48ff8f1f87db0d847ed4
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
     displayInstructions();
-  }
+  }  
+  textSize(16);
+  fill(0, 0, 0);
+  text(""+mouseX+","+mouseY, 20, 20);
 }
+//===============================SHOW INSTRUCTIONS AND SETTINGS PAGES=============================
 void displayInstructions() {
   fill(0, 0, 0, 100);
   rect(50, 50, width-100, height-100);
-  fill(255);
+  fill(255); 
   text("Instructions", 100, 100);
   textSize(18);
   text("Press the spacebar to exit to the main menu", 100, 600);
@@ -106,10 +124,11 @@ void displaySettings() {
   textSize(18);
   text("Press the spacebar to exit to the main menu", 100, 600);
 }
+//==============================MOUSE COORDINATES=====================================
 void updateMouse(int x, int y) {
   onStart = onSettings = onInstructions = false;
   if (x >= startX && y >= startY && x <= startX+buttonW && y <= startY+buttonH) {
-    onStart=true;
+    onStart = true;
   }
   if (x >= insX && y >= insY && x <= insX+buttonW && y <= insY+buttonH) {
     onInstructions = true;
@@ -118,6 +137,7 @@ void updateMouse(int x, int y) {
     onSettings = true;
   }
 }
+//===============================PLAYER INTERACTION===================================
 void mousePressed() {
   clicked = true;
 }

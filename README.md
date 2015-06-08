@@ -39,7 +39,7 @@ Saturday, May 30
 - Working on game components (ie. recipes)
 
 Sunday, May 30
-- Removing backgrounds on appliances characters
+- Removing backgrounds on appliances & characters
 - Starting on animations
 
 Tuesday, June 2
@@ -48,3 +48,10 @@ Tuesday, June 2
 
 Thursday, June 3
 - Added in shadows/3D effect to sprites
+
+Friday, June 5
+- Working out merge conflicts
+- Added in pictures to the game screen
+- Adding player to the game screen; working on animations
+
+
