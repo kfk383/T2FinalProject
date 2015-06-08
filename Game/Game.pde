@@ -84,9 +84,11 @@ void draw() {
   } else if (mode == START) {
     background(startImg);
     iron = loadImage("iron.png");
-    image(iron, 0, 300);
+    iron.resize(76,100);
+    image(iron, 345, 280);
     pot = loadImage("pot.png");
-    image(pot, 160, 310);
+    pot.resize(87,65);
+    image(pot, 205, 350);
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
