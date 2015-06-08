@@ -23,5 +23,40 @@ class Tools {
     potW = 75;
     potH = 45;
   }
-}
+  boolean onBoard(int x, int y) {
+    boolean value = true;
+    if (!(x >= boardX && x <= boardX+boardW)) {
+      value = false;
+    } else if (!(y >= boardY && y <= boardY + boardH)) {
+      value = false;
+    }
+    return value;
+  }
+  boolean onIron(int x, int y) {
+    boolean value = true;
+    if (!(x >= ironX && x <= ironX+ironW)) {
+      value = false;
+    } else if (!(y >= ironY && y <= ironY + ironH)) {
+      value = false;
+    }
+    return value;
+  }
+  boolean onToaster(int x, int y) {
+    boolean value = true;
+    if (!(x >= toasterX && x <= toasterX+toasterW)) {
+      value = false;
+    } else if (!(y >= toasterY && y <= toasterY + toasterH)) {
+      value = false;
+    }
+    return value;
+  }
+  boolean onPot(int x, int y) {
+    boolean value = true;
+    if (!(x >= potX && x <= potX+potW)) {
+      value = false;
+    } else if (!(y >= potY && y <= potY + potH)) {
+      value = false;
+    }
+    return value;
+  }
 
