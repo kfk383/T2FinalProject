@@ -4,6 +4,13 @@ class Tools {
   int ironW, ironH;
   int potW, potH;
   int toasterW, toasterH;
+  int statusW, statusH;
+  int bStatusX, bStatusY;
+  int iStatusX, iStatusY;
+  int pStatusX, pStatusY;
+  int tStatusX, tStatusY;
+  boolean usingBoard, usingIron, usingPot, usingToaster;
+  color emptyS, fullS;
 
   Tools() {
     boardX = 750;

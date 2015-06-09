@@ -54,4 +54,7 @@ Friday, June 5
 - Added in pictures to the game screen
 - Adding player to the game screen; working on animations
 
-
+Monday, June 8
+- Finished editing images; finishing up character sprites
+- Working on mouse control functions of tools
+- Starting on recipes
