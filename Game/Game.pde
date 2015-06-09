@@ -1,9 +1,6 @@
-<<<<<<< HEAD
   //GOOD LOK FINAL PROJECT
 //KRISTI FOK AND LABIBA CHOWDHURY
 //PERIOD 6
-=======
->>>>>>> 93dfa0ec68a496587053baba0cbe5b5d2d7b969a
 //==========================================CONSTANTS AND SETUP FOR GAME=============================
 int startX, startY; // the location of the start button
 int insX, insY; // the location of the instructions button
@@ -91,12 +88,8 @@ void draw() {
     iron.resize(76, 100);
     image(iron, 345, 280);
     pot = loadImage("pot.png");
-<<<<<<< HEAD
-    image(pot, 160, 310);
-=======
     pot.resize(87, 65);
     image(pot, 205, 350);
->>>>>>> 93dfa0ec68a496587053baba0cbe5b5d2d7b969a
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
