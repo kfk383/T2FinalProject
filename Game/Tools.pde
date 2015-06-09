@@ -4,6 +4,13 @@ class Tools {
   int ironW, ironH;
   int potW, potH;
   int toasterW, toasterH;
+  int statusW, statusH;
+  int bStatusX, bStatusY;
+  int iStatusX, iStatusY;
+  int pStatusX, pStatusY;
+  int tStatusX, tStatusY;
+  boolean usingBoard, usingIron, usingPot, usingToaster;
+  color emptyS, fullS;
 
   Tools() {
     boardX = 750;
@@ -58,7 +65,7 @@ class Tools {
       value = false;
     }
     return value;
-  } 
+  }
   void go() {
     //status bar? use two rectangles attached to one another with different colors for each bar.
     if (usingIron) {
@@ -82,3 +89,4 @@ class Tools {
   void usePot() {
     usingPot = true;
   }
+
