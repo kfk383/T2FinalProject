@@ -1,8 +1,9 @@
 class Recipes {
   boolean carrying, tool;
   //click on ingredients, animation to show you clicked on the right ingredients, click on correct appliance, animation of ingredients cooking
-  //first recipe: scrambled eggs
-
+  //first recipe: scrambled eggs(frying pan), boiled egg, cheese sandwich(need bread), pancakes, waffles,hashbrowns,cereal  
+PImage[] ingred;
+PImage ing;
   void updateMouse(int x, int y) {
     if (x < 900 && x > 850 && y > 100 && y <150) {
       carrying = true;
@@ -16,5 +17,8 @@ class Recipes {
       text("you made tea!!", 600, 100);
     }
   }
+
+void splittinging(){
+
 }
 

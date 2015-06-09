@@ -11,7 +11,7 @@ int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 PImage menuImg, startImg;
 PImage iron, pot; 
-PImage ingredients;
+PImage apple, egg, milk, cheese, potato;
 int mode;
 int MENU = 0;
 int START = 1;
@@ -90,6 +90,9 @@ void draw() {
     pot = loadImage("pot.png");
     pot.resize(87, 65);
     image(pot, 205, 350);
+    egg=loadImage("egg.png");
+    image(egg, 875,125);
+    
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
@@ -139,5 +142,5 @@ void keyPressed() {
   }//else if (keyCode == 32){
   //mode = INSTRUCTIONS; 
   //}
-}
+} 
 
