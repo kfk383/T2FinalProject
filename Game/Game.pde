@@ -1,4 +1,4 @@
-  //GOOD LOK FINAL PROJECT
+//GOOD LOK FINAL PROJECT
 //KRISTI FOK AND LABIBA CHOWDHURY
 //PERIOD 6
 //==========================================CONSTANTS AND SETUP FOR GAME=============================
@@ -94,7 +94,7 @@ void draw() {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
     displayInstructions();
-  }  
+  }
 }
 //===============================SHOW INSTRUCTIONS AND SETTINGS PAGES=============================
 void displayInstructions() {
