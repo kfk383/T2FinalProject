@@ -66,6 +66,26 @@ class Tools {
     }
     return value;
   }
-  void go(){
-    
+  void go() {
+    if (usingIron) {
+    }
+    if (usingToaster) {
+    }
+    if (usingBoard) {
+    }
+    if (usingPot) {
+    }
   }
+  void useIron() {
+    usingIron = true;
+  }
+  void useToaster() {
+    usingToaster = true;
+  }
+  void useBoard() {
+    usingBoard = true;
+  }
+  void usePot() {
+    usingPot = true;
+  }
+
