@@ -67,6 +67,7 @@ class Tools {
     return value;
   }
   void go() {
+    //status bar? use two rectangles attached to one another with different colors for each bar.
     if (usingIron) {
     }
     if (usingToaster) {
