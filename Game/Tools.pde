@@ -1,0 +1,62 @@
+class Tools {
+  int boardX, boardY, ironX, ironY, potX, potY, toasterX, toasterY;
+  int boardW, boardH;
+  int ironW, ironH;
+  int potW, potH;
+  int toasterW, toasterH;
+
+  Tools() {
+    boardX = 750;
+    boardY = 340;
+    boardW = 80;
+    boardH = 15;
+    ironX = 350;
+    ironY = 290;
+    ironW = 65;
+    ironH = 80;
+    toasterX = 950;
+    toasterY = 320;
+    toasterW = 125;
+    toasterH = 60;
+    potX = 210;
+    potY = 360;
+    potW = 75;
+    potH = 45;
+  }
+  boolean onBoard(int x, int y) {
+    boolean value = true;
+    if (!(x >= boardX && x <= boardX+boardW)) {
+      value = false;
+    } else if (!(y >= boardY && y <= boardY + boardH)) {
+      value = false;
+    }
+    return value;
+  }
+  boolean onIron(int x, int y) {
+    boolean value = true;
+    if (!(x >= ironX && x <= ironX+ironW)) {
+      value = false;
+    } else if (!(y >= ironY && y <= ironY + ironH)) {
+      value = false;
+    }
+    return value;
+  }
+  boolean onToaster(int x, int y) {
+    boolean value = true;
+    if (!(x >= toasterX && x <= toasterX+toasterW)) {
+      value = false;
+    } else if (!(y >= toasterY && y <= toasterY + toasterH)) {
+      value = false;
+    }
+    return value;
+  }
+  boolean onPot(int x, int y) {
+    boolean value = true;
+    if (!(x >= potX && x <= potX+potW)) {
+      value = false;
+    } else if (!(y >= potY && y <= potY + potH)) {
+      value = false;
+    }
+    return value;
+  }
+
