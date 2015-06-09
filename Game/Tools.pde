@@ -66,12 +66,6 @@ class Tools {
     }
     return value;
   }
-  void useBoard() {
+  void go(){
+    
   }
-  void useIron() {
-  }
-  void useToaster() {
-  }
-  void usePot() {
-  }
-
