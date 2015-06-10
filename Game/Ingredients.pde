@@ -53,7 +53,7 @@ class Ingredients {
 
   boolean onEgg(int x, int y) {
     boolean value = true;
-    if (!(x >= eggX && x <= eggX+eggW)) {
+    if (!(x >= eggX && x <= eggX + eggW)) {
       value = false;
     } else if (!(y >= eggY && y <= eggY + eggH)) {
       value = false;
@@ -62,7 +62,7 @@ class Ingredients {
   }
   boolean onCheese(int x, int y) {
     boolean value = true;
-    if (!(x >= cheeseX && x <= cheeseX+cheeseW)) {
+    if (!(x >= cheeseX && x <= cheeseX + cheeseW)) {
       value = false;
     } else if (!(y >= cheeseY && y <= cheeseY + cheeseH)) {
       value = false;
@@ -71,7 +71,7 @@ class Ingredients {
   }
   boolean onApple(int x, int y) {
     boolean value = true;
-    if (!(x >= appleX && x <= appleX+appleW)) {
+    if (!(x >= appleX && x <= appleX + appleW)) {
       value = false;
     } else if (!(y >= appleY && y <= appleY + appleH)) {
       value = false;
@@ -80,7 +80,7 @@ class Ingredients {
   }
   boolean onBatter(int x, int y) {
     boolean value = true;
-    if (!(x >= batterX && x <= batterX+batterW)) {
+    if (!(x >= batterX && x <= batterX + batterW)) {
       value = false;
     } else if (!(y >= batterY && y <= batterY + batterH)) {
       value = false;
@@ -89,7 +89,7 @@ class Ingredients {
   }
   boolean onPotato(int x, int y) {
     boolean value = true;
-    if (!(x >= potatoX && x <= potatoX+potatoW)) {
+    if (!(x >= potatoX && x <= potatoX + potatoW)) {
       value = false;
     } else if (!(y >= potatoY && y <= potatoY + potatoH)) {
       value = false;
@@ -98,7 +98,7 @@ class Ingredients {
   }
   boolean onMilk(int x, int y) {
     boolean value = true;
-    if (!(x >= milkX && x <= milkX+milkW)) {
+    if (!(x >= milkX && x <= milkX + milkW)) {
       value = false;
     } else if (!(y >= milkY && y <= milkY + milkH)) {
       value = false;
