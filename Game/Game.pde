@@ -30,6 +30,7 @@ Ingredients ingredients;
 Recipes recipes;
 Tools tools;
 move m;
+Recipes r;
 
 void setup() {
   //instantiate implemented classes
@@ -38,6 +39,7 @@ void setup() {
   recipes = new Recipes();
   tools = new Tools();
   m = new move();
+  r= new Recipes();
   //Sets up the constants for drawing the screen
   int screenWidth = 1200;
   int screenHeight = 700;
@@ -103,8 +105,15 @@ void draw() {
     background(startImg);
     front=loadImage("front.png");
     front.resize(135,500);
-    if(!moveLeft&&!moveRight){
-    image(front, 600,200);}
+    if(!moveRight &&!moveLeft){
+    image(front, cx,cy);}
+    else if(moveRight){
+      image(right,cx,cy);
+    moveRight=false;}
+      else if(moveLeft){
+        image(left,cx,cy);
+      moveLeft=false;}
+        
     iron = loadImage("iron.png");
     iron.resize(76, 100);
     image(iron, 345, 280);
@@ -170,7 +179,7 @@ void keyPressed() {
       left.resize(145,500);
       cx-=speed;
       image(left,cx,cy);
-    } else if (keyCode == RIGHT) {
+    } else if (keyCode == RIGHT&&cx<750) {
       moveRight = true;
       right=loadImage("right.png");
       right.resize(145,500);
@@ -194,12 +203,9 @@ void keyReleased() {
     }
   }
 */
-if(moveLeft){ 
- left=loadImage("left.png");
-      left.resize(145,500);
-  image(left,cx,cy);
+
 }
-}
+
 
 
 
