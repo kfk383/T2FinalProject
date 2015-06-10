@@ -1,11 +1,11 @@
-class Character {
+class Player {
   int mode, numObjects; // what the character is currently doing and the number of objects that the character is carrying
   /*Constants for mode values (possible actions of the character)
-  N = walking towards the screen
-  S = walking away from the screen
-  W = walking to the right
-  E = walking to the left
-  */
+   N = walking towards the screen
+   S = walking away from the screen
+   W = walking to the right
+   E = walking to the left
+   */
   int STANDING = 0;
   int N_WALKING = 1;
   int S_WALKING = 2;
@@ -17,6 +17,7 @@ class Character {
   int SE_WALKING = 8;
   int dy, dx; 
 
- 
+  Player() {
+  }
 }
 

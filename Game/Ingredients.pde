@@ -7,6 +7,8 @@ class Ingredients {
   int milkX, milkY, milkW, milkH;
   boolean holdingEgg, holdingCheese, holdingApple, holdingBatter, holdingPotato;
 
+
+
   boolean onEgg(int x, int y) {
     boolean value = true;
     if (!(x >= eggX && x <= eggX+eggW)) {

@@ -1,7 +1,5 @@
-//GOOD LOK FINAL PROJECT
-//KRISTI FOK AND LABIBA CHOWDHURY
-//PERIOD 6
 //==========================================CONSTANTS AND SETUP FOR GAME=============================
+//Button Constants
 int startX, startY; // the location of the start button
 int insX, insY; // the location of the instructions button
 int setX, setY; // the location of the settings button
@@ -9,19 +7,32 @@ color buttonColor, highlightColor;
 int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
+
+//Images
 PImage menuImg, startImg;
 PImage iron, pot; 
-PImage apple, egg, milk, cheese, potato;
+
+//Modes for Game
 int mode;
 int MENU = 0;
 int START = 1;
 int SETTINGS = 2;
 int INSTRUCTIONS = 3;
-int xSpeed = 2;
-int ySpeed = 2;
 
+//Classes Implemented
+Player player;
+Ingredients ingredients;
+Recipes recipes;
+Tools tools;
 
 void setup() {
+  //instantiate implemented classes
+  player = new Player();
+  ingredients = new Ingredients();
+  recipes = new Recipes();
+  tools = new Tools();
+  
+  //Sets up the constants for drawing the screen
   int screenWidth = 1200;
   int screenHeight = 700;
   menuImg = loadImage("titlepg.png");
@@ -90,9 +101,7 @@ void draw() {
     pot = loadImage("pot.png");
     pot.resize(87, 65);
     image(pot, 205, 350);
-    egg=loadImage("egg.png");
-    image(egg, 875,125);
-    
+    ingredients.drawImages();    
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
