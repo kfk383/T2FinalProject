@@ -1,4 +1,6 @@
 class Player {
+  PImage front, right, left;
+  
   int mode, numObjects; // what the character is currently doing and the number of objects that the character is carrying
   /*Constants for mode values (possible actions of the character)
    N = walking towards the screen
@@ -17,7 +19,17 @@ class Player {
   int SE_WALKING = 8;
   int dy, dx; 
 
-  Player() {
+  void start(){
+  front=loadImage("front.png");
+  front.resize(135,500);
+  right=loadImage("right.png");
+  right.resize(135,500);
+  left=loadImage("left.png");
+  left.resize(135,500);
   }
+  
+  
+  
+  
 }
 

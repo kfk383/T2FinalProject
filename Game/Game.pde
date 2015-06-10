@@ -9,9 +9,13 @@ int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 
 //Images
-PImage menuImg, startImg;
+PImage menuImg, startImg, front,right,left;
 PImage iron, pot; 
 PImage egg, cheese, apple, batter, potato, milk; 
+int cx=600;
+int cy= 200; //location of character
+int speed=35;//speed of movement
+boolean moveRight,moveLeft,moveUp;
 
 //Modes for Game
 int mode;
@@ -21,10 +25,11 @@ int SETTINGS = 2;
 int INSTRUCTIONS = 3;
 
 //Classes Implemented
-Player player;
+Player player; 
 Ingredients ingredients;
 Recipes recipes;
 Tools tools;
+move m;
 
 void setup() {
   //instantiate implemented classes
@@ -32,7 +37,7 @@ void setup() {
   ingredients = new Ingredients();
   recipes = new Recipes();
   tools = new Tools();
-
+  m = new move();
   //Sets up the constants for drawing the screen
   int screenWidth = 1200;
   int screenHeight = 700;
@@ -65,7 +70,7 @@ void draw() {
     if (! onSettings) {
       fill(100, 0, 0);
     } else if (clicked) {
-      fill(130, 30, 30);
+      fill(130, 30, 30); 
     } else {
       fill(130, 0, 0);
     }
@@ -96,6 +101,10 @@ void draw() {
     }
   } else if (mode == START) {
     background(startImg);
+    front=loadImage("front.png");
+    front.resize(135,500);
+    if(!moveLeft&&!moveRight){
+    image(front, 600,200);}
     iron = loadImage("iron.png");
     iron.resize(76, 100);
     image(iron, 345, 280);
@@ -154,6 +163,44 @@ void keyPressed() {
     mode = MENU;
   }//else if (keyCode == 32){
   //mode = INSTRUCTIONS; 
-  //}
-} 
+  if (key == CODED) {
+    if (keyCode == LEFT&&cx>425) {
+      moveLeft=true;
+      left=loadImage("left.png");
+      left.resize(145,500);
+      cx-=speed;
+      image(left,cx,cy);
+    } else if (keyCode == RIGHT) {
+      moveRight = true;
+      right=loadImage("right.png");
+      right.resize(145,500);
+      cx+=speed;
+      image(right,cx,cy);
+    } else if (keyCode == UP) {
+      moveUp = true;
+    }
+  }
+}
+
+void keyReleased() {
+/*  if (key == CODED) {
+    if (keyCode == LEFT) {       
+      moveLeft = false;
+      image(left,cx,cy);
+    } else if (keyCode == RIGHT) {
+      moveRight = false;
+    } else if (keyCode == UP) {
+      moveUp = false;
+    }
+  }
+*/
+if(moveLeft){ 
+ left=loadImage("left.png");
+      left.resize(145,500);
+  image(left,cx,cy);
+}
+}
+
+
+
 
