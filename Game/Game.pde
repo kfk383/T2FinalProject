@@ -11,6 +11,7 @@ boolean onStart, onInstructions, onSettings, clicked;
 //Images
 PImage menuImg, startImg;
 PImage iron, pot; 
+PImage egg, cheese, apple, batter, potato, milk; 
 
 //Modes for Game
 int mode;
@@ -31,7 +32,7 @@ void setup() {
   ingredients = new Ingredients();
   recipes = new Recipes();
   tools = new Tools();
-  
+
   //Sets up the constants for drawing the screen
   int screenWidth = 1200;
   int screenHeight = 700;
@@ -101,12 +102,15 @@ void draw() {
     pot = loadImage("pot.png");
     pot.resize(87, 65);
     image(pot, 205, 350);
-    ingredients.drawImages();    
+    ingredients.drawImages(); //draws the ingredients on the shelves
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
     displayInstructions();
   }
+  textSize(18);
+  fill(0);
+  text(""+mouseX+","+mouseY, 20, 20);
 }
 //===============================SHOW INSTRUCTIONS AND SETTINGS PAGES=============================
 void displayInstructions() {

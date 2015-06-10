@@ -7,7 +7,49 @@ class Ingredients {
   int milkX, milkY, milkW, milkH;
   boolean holdingEgg, holdingCheese, holdingApple, holdingBatter, holdingPotato;
 
-
+  Ingredients() {
+    eggX = 910;
+    eggY = 188;
+    eggW = 31;
+    eggH = 25;
+    egg = loadImage("egg.png");
+    egg.resize(eggW, eggH);
+    
+    cheeseX = 945;
+    cheeseY = 188;
+    cheeseW = 34;
+    cheeseH = 24;
+    cheese = loadImage("cheese.png");
+    cheese.resize(cheeseW, cheeseH);
+        
+    appleX = 980;
+    appleY = 180;
+    appleW = 30;
+    appleH = 31;
+    apple = loadImage("apple.png");
+    apple.resize(appleW, appleH);
+    
+    batterX = 915;
+    batterY = 225;
+    batterW = 47;
+    batterH = 47;
+    batter = loadImage("batter.png");
+    batter.resize(batterW, batterH);
+    
+    potatoX = 960;
+    potatoY = 240;
+    potatoW = 43;
+    potatoH = 30;
+    potato = loadImage("potato.png");
+    potato.resize(potatoW, potatoH);
+    
+    milkX = 1005;
+    milkY = 235;
+    milkW = 30;
+    milkH = 36;
+    milk = loadImage("milk.png");
+    milk.resize(milkW, milkH);
+  }
 
   boolean onEgg(int x, int y) {
     boolean value = true;
@@ -62,6 +104,14 @@ class Ingredients {
       value = false;
     }
     return value;
+  }
+  void drawImages() {
+    image(cheese, cheeseX, cheeseY);
+    image(potato, potatoX, potatoY);
+    image(milk, milkX, milkY);
+    image(apple, appleX, appleY);
+    image(batter, batterX, batterY);
+    image(egg, eggX, eggY);
   }
 }
 
