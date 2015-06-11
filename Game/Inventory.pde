@@ -22,6 +22,7 @@ class Inventory {
   void addIngredient(String filename) {
     ingredient2 = ingredient1;
     ingredient1 = loadImage(filename);
+    ingredient1.resize(50,50);
   }
   void drawImages(){
     fill(100, 0, 0);
@@ -33,5 +34,10 @@ class Inventory {
     textSize(20);
     fill(0, 255, 204);
     text("INVENTORY", 640,150);
+    if (ingredient1 != null){
+      image(ingredient1, slot1X, slot1Y);
+    }if (ingredient2 != null){
+      image(ingredient2, slot2X, slot2Y);
+    }
   }
 }

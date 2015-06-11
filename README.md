@@ -69,3 +69,4 @@ Wednesday, June 10
 - Changing animation of player to mouse control
 - Working on specific recipes
 - Getting images of finished dishes
+- Added inventory, which can store max of two ingredients.

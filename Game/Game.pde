@@ -32,6 +32,7 @@ Tools tools;
 Move m;
 Recipes r;
 Inventory inventory;
+InstructionsText instructions;
 
 void setup() {
   //instantiate implemented classes
@@ -42,6 +43,8 @@ void setup() {
   m = new Move();
   r= new Recipes();
   inventory = new Inventory();
+  instructions = new InstructionsText();
+
   //Sets up the constants for drawing the screen
   int screenWidth = 1200;
   int screenHeight = 700;
@@ -113,7 +116,7 @@ void draw() {
     image(pot, 205, 350);
     ingredients.drawImages(); //draws the ingredients on the shelves
     inventory.drawImages(); //draws the inventory on the region around the window.
-    
+
     front=loadImage("front.png");
     front.resize(135, 500);
     if (!moveRight &&!moveLeft) {
@@ -141,7 +144,13 @@ void displayInstructions() {
   fill(255); 
   text("Instructions", 100, 100);
   textSize(18);
-  text("Press the spacebar to exit to the main menu", 100, 600);
+  text(instructions.getLine(1), 100, 150);
+  text(instructions.getLine(2), 100, 200);
+  text(instructions.getLine(3), 100, 240);
+  text(instructions.getLine(4), 100, 280);
+  text(instructions.getLine(5), 100, 320);
+  text(instructions.getLine(6), 100, 360);
+  text("Press the spacebar to exit to the main menu at any time.", 100, 600);
 }
 void displaySettings() {
   fill(0, 0, 0, 100);
@@ -208,7 +217,6 @@ void keyReleased() {
    }
    */
 }
-
 
 
 
