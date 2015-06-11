@@ -63,4 +63,9 @@ Tuesday, June 9
 - Starting on status bar for using the tools
 - Photoshopped shelves on background to be empty
 - Added ingredients to the game screen
+- Added animation of player
 
+Wednesday, June 10
+- Changing animation of player to mouse control
+- Working on specific recipes
+- Getting images of finished dishes
