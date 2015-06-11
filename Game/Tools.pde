@@ -1,8 +1,9 @@
 class Tools {
-  int boardX, boardY, ironX, ironY, potX, potY, toasterX, toasterY;
+  int boardX, boardY, ironX, ironY, potX, potY, toasterX, toasterY, ovenX, ovenY;
   int boardW, boardH;
   int ironW, ironH;
   int potW, potH;
+  int ovenW, ovenH;
   int toasterW, toasterH;
   int statusW, statusH;
   int bStatusX, bStatusY;
@@ -29,6 +30,10 @@ class Tools {
     potY = 360;
     potW = 75;
     potH = 45;
+    ovenX = 250;
+    ovenY = 440;
+    ovenW = 195;
+    ovenH = 195;
   }
   boolean onBoard(int x, int y) {
     boolean value = true;
