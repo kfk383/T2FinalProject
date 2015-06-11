@@ -11,7 +11,7 @@ boolean onStart, onInstructions, onSettings, clicked;
 //Images
 PImage menuImg, startImg, front, right, left;
 PImage iron, pot; 
-PImage egg, cheese, apple, batter, potato, milk; 
+PImage egg, cheese, bagel, cereal, oatmeal, milk; 
 int cx=600;
 int cy= 200; //location of character
 int speed=35;//speed of movement
@@ -43,7 +43,6 @@ void setup() {
   tools = new Tools();
   m = new Move();
   r= new Recipes();
-  inventory = new Inventory();
   instructions = new InstructionsText();
 
   //Sets up the constants for drawing the screen
@@ -115,8 +114,7 @@ void draw() {
     pot = loadImage("pot.png");
     pot.resize(87, 65);
     image(pot, 205, 350);
-    ingredients.drawImages(); //draws the ingredients on the shelves
-    inventory.drawImages(); //draws the inventory on the region around the window.
+    ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
 
     front=loadImage("front.png");
     front.resize(135, 500);
@@ -140,7 +138,7 @@ void draw() {
   }
   textSize(18);
   fill(0);
-  text(""+mouseX+","+mouseY, 20, 20);
+  text(""+mouseX+", "+mouseY, 20, 20);
 }
 //===============================SHOW INSTRUCTIONS AND SETTINGS PAGES=============================
 void displayInstructions() {
@@ -155,7 +153,7 @@ void displayInstructions() {
   text(instructions.getLine(4), 100, 280);
   text(instructions.getLine(5), 100, 320);
   text(instructions.getLine(6), 100, 360);
-  text("Press the spacebar to exit to the main menu at any time.", 100, 600);
+  text(instructions.getLine(7), 100, 430);
 }
 void displaySettings() {
   fill(0, 0, 0, 100);
@@ -226,19 +224,6 @@ void keyReleased() {
    */
 }
 void mouseClicked() {
-    if (mouseX < 940 && mouseX > 890 && mouseY > 160 && mouseY <200) {
-      carrying = true;
-      textSize(32);
-      fill(50);
-      text("you got the egg!", 600, 100);
-    }
-    if (mouseX < 200 && mouseX > 100 && mouseY > 250 && mouseY < 350) {
-      tool = true;
-      text("the egg is in the pot!", 600, 100);
-    }
-    if (tool && carrying) {
-      text("you made a boiled egg!!", 600, 100);
-    }
-    if(carrying){text("you got the egg!", 600, 100);}
+    ingredients.checkMouse(mouseX, mouseY);
   }
 

@@ -70,3 +70,8 @@ Wednesday, June 10
 - Working on specific recipes
 - Getting images of finished dishes
 - Added inventory, which can store max of two ingredients.
+
+Thursdday, June 11
+- Converting to mouse control of player
+- Replacing ingredients on shelf
+- Connecting individual classes with one another
