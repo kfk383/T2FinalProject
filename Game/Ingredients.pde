@@ -5,7 +5,8 @@ class Ingredients {
   int cerealX, cerealY, cerealW, cerealH;
   int oatmealX, oatmealY, oatmealW, oatmealH;
   int milkX, milkY, milkW, milkH;
-  boolean holdingEgg, holdingCheese, holdingbagel, holdingcereal, holdingoatmeal;
+
+  Inventory inventory = new Inventory();
 
   Ingredients() {
     eggX = 910;
@@ -14,41 +15,57 @@ class Ingredients {
     eggH = 25;
     egg = loadImage("egg.png");
     egg.resize(eggW, eggH);
-    
+
     cheeseX = 945;
     cheeseY = 188;
     cheeseW = 34;
     cheeseH = 24;
     cheese = loadImage("cheese.png");
     cheese.resize(cheeseW, cheeseH);
-        
+
     bagelX = 985;
     bagelY = 185;
     bagelW = 35;
     bagelH = 28;
     bagel = loadImage("bagel.png");
     bagel.resize(bagelW, bagelH);
-    
+
     cerealX = 915;
     cerealY = 220;
     cerealW = 47;
     cerealH = 47;
     cereal = loadImage("cereal.png");
     cereal.resize(cerealW, cerealH);
-    
+
     oatmealX = 965;
     oatmealY = 233;
     oatmealW = 30;
     oatmealH = 35;
     oatmeal = loadImage("oatmeal.png");
     oatmeal.resize(oatmealW, oatmealH);
-    
+
     milkX = 1005;
     milkY = 235;
     milkW = 30;
     milkH = 36;
     milk = loadImage("milk.png");
     milk.resize(milkW, milkH);
+  }
+
+  void checkMouse(int x, int y) {
+    if (onEgg(x, y)) {
+      inventory.addIngredient("egg.png");
+    } else if (onCheese(x, y)) {
+      inventory.addIngredient("cheese.png");
+    } else if (onBagel(x, y)) {
+      inventory.addIngredient("bagel.png");
+    } else if (onCereal(x, y)) {
+      inventory.addIngredient("cereal.png");
+    } else if (onOatmeal(x, y)) {
+      inventory.addIngredient("oatmeal.png");
+    } else if (onMilk(x, y)) {
+      inventory.addIngredient("milk.png");
+    }
   }
 
   boolean onEgg(int x, int y) {
@@ -112,6 +129,7 @@ class Ingredients {
     image(bagel, bagelX, bagelY);
     image(cereal, cerealX, cerealY);
     image(egg, eggX, eggY);
+    inventory.drawImages();
   }
 }
 

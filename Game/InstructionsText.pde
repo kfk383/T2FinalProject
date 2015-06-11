@@ -5,6 +5,7 @@ class InstructionsText {
   String line4 = "Using a mouse-controlled character, you can move around the kitchen and move"; 
   String line5 = "a maximum of two ingredients at a time.";
   String line6 = "You win when you discover all of the recipes!";
+  String line7 = "Note: you can return to the main menu at any time using the spacebar.";
 
   String getLine(int i) {
     if (i == 1) {
@@ -22,7 +23,10 @@ class InstructionsText {
     if (i == 5) {
       return line5;
     }
-    return line6;
+    if (i == 6) {
+      return line6;
+    }
+    return line7;
   }
 }
 
