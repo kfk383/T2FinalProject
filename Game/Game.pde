@@ -16,7 +16,7 @@ int cx=600;
 int cy= 200; //location of character
 int speed=35;//speed of movement
 boolean moveRight, moveLeft, moveUp;
-
+boolean carrying, tool;
 //Modes for Game
 int mode;
 int MENU = 0;
@@ -217,6 +217,20 @@ void keyReleased() {
    }
    */
 }
-
-
+void mouseClicked() {
+    if (mouseX < 940 && mouseX > 890 && mouseY > 160 && mouseY <200) {
+      carrying = true;
+      textSize(32);
+      fill(50);
+      text("you got the egg!", 600, 100);
+    }
+    if (mouseX < 200 && mouseX > 100 && mouseY > 250 && mouseY < 350) {
+      tool = true;
+      text("the egg is in the pot!", 600, 100);
+    }
+    if (tool && carrying) {
+      text("you made a boiled egg!!", 600, 100);
+    }
+    if(carrying){text("you got the egg!", 600, 100);}
+  }
 
