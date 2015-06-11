@@ -1,12 +1,37 @@
 class Inventory {
   PImage ingredient1;
   PImage ingredient2;
-  
-  void addIngredient(String filename){
+  int backX, backY;
+  int backW, backH;
+  int slot1X, slot1Y;
+  int slot2X, slot2Y;
+  int slotW, slotH;
+
+  Inventory() {
+    backX = 630; 
+    backY = 125;
+    backW = 135;
+    backH = 90;
+    slotW = 50;
+    slotH = 50;
+    slot1Y = slot2Y = 155;
+    slot1X = 640;
+    slot2X = 705;
+  }
+
+  void addIngredient(String filename) {
     ingredient2 = ingredient1;
     ingredient1 = loadImage(filename);
-    } 
-  
+  }
+  void drawImages(){
+    fill(100, 0, 0);
+    rect(backX, backY, backW, backH);
+    fill(255,255,255);
+    rect(slot1X, slot1Y, slotW, slotH);
+    fill(255,255,255);
+    rect(slot2X, slot2Y, slotW, slotH);
+    textSize(20);
+    fill(0, 255, 204);
+    text("INVENTORY", 640,150);
   }
 }
-

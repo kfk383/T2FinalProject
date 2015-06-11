@@ -1,4 +1,4 @@
-class move{
+class Move{
 int steps=0;
 PImage front, right, left;
 int xcoor=600;

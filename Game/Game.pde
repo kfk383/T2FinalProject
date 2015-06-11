@@ -9,13 +9,13 @@ int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 
 //Images
-PImage menuImg, startImg, front,right,left;
+PImage menuImg, startImg, front, right, left;
 PImage iron, pot; 
 PImage egg, cheese, apple, batter, potato, milk; 
 int cx=600;
 int cy= 200; //location of character
 int speed=35;//speed of movement
-boolean moveRight,moveLeft,moveUp;
+boolean moveRight, moveLeft, moveUp;
 
 //Modes for Game
 int mode;
@@ -29,8 +29,9 @@ Player player;
 Ingredients ingredients;
 Recipes recipes;
 Tools tools;
-move m;
+Move m;
 Recipes r;
+Inventory inventory;
 
 void setup() {
   //instantiate implemented classes
@@ -38,8 +39,9 @@ void setup() {
   ingredients = new Ingredients();
   recipes = new Recipes();
   tools = new Tools();
-  m = new move();
+  m = new Move();
   r= new Recipes();
+  inventory = new Inventory();
   //Sets up the constants for drawing the screen
   int screenWidth = 1200;
   int screenHeight = 700;
@@ -72,7 +74,7 @@ void draw() {
     if (! onSettings) {
       fill(100, 0, 0);
     } else if (clicked) {
-      fill(130, 30, 30); 
+      fill(130, 30, 30);
     } else {
       fill(130, 0, 0);
     }
@@ -103,17 +105,6 @@ void draw() {
     }
   } else if (mode == START) {
     background(startImg);
-    front=loadImage("front.png");
-    front.resize(135,500);
-    if(!moveRight &&!moveLeft){
-    image(front, cx,cy);}
-    else if(moveRight){
-      image(right,cx,cy);
-    moveRight=false;}
-      else if(moveLeft){
-        image(left,cx,cy);
-      moveLeft=false;}
-        
     iron = loadImage("iron.png");
     iron.resize(76, 100);
     image(iron, 345, 280);
@@ -121,6 +112,19 @@ void draw() {
     pot.resize(87, 65);
     image(pot, 205, 350);
     ingredients.drawImages(); //draws the ingredients on the shelves
+    inventory.drawImages(); //draws the inventory on the region around the window.
+    
+    front=loadImage("front.png");
+    front.resize(135, 500);
+    if (!moveRight &&!moveLeft) {
+      image(front, cx, cy);
+    } else if (moveRight) {
+      image(right, cx, cy);
+      moveRight=false;
+    } else if (moveLeft) {
+      image(left, cx, cy);
+      moveLeft=false;
+    }
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
@@ -176,15 +180,15 @@ void keyPressed() {
     if (keyCode == LEFT&&cx>425) {
       moveLeft=true;
       left=loadImage("left.png");
-      left.resize(145,500);
+      left.resize(145, 500);
       cx-=speed;
-      image(left,cx,cy);
+      image(left, cx, cy);
     } else if (keyCode == RIGHT&&cx<750) {
       moveRight = true;
       right=loadImage("right.png");
-      right.resize(145,500);
+      right.resize(145, 500);
       cx+=speed;
-      image(right,cx,cy);
+      image(right, cx, cy);
     } else if (keyCode == UP) {
       moveUp = true;
     }
@@ -192,20 +196,18 @@ void keyPressed() {
 }
 
 void keyReleased() {
-/*  if (key == CODED) {
-    if (keyCode == LEFT) {       
-      moveLeft = false;
-      image(left,cx,cy);
-    } else if (keyCode == RIGHT) {
-      moveRight = false;
-    } else if (keyCode == UP) {
-      moveUp = false;
-    }
-  }
-*/
-
+  /*  if (key == CODED) {
+   if (keyCode == LEFT) {       
+   moveLeft = false;
+   image(left,cx,cy);
+   } else if (keyCode == RIGHT) {
+   moveRight = false;
+   } else if (keyCode == UP) {
+   moveUp = false;
+   }
+   }
+   */
 }
-
 
 
 
