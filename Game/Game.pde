@@ -11,7 +11,7 @@ boolean onStart, onInstructions, onSettings, clicked;
 //Images
 PImage menuImg, startImg, front, right, left;
 PImage iron, pot; 
-PImage egg, cheese, apple, batter, potato, milk; 
+PImage egg, cheese, bagel, cereal, oatmeal, milk; 
 int cx=600;
 int cy= 200; //location of character
 int speed=35;//speed of movement

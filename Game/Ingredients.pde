@@ -1,11 +1,11 @@
 class Ingredients {
   int eggX, eggY, eggW, eggH;
   int cheeseX, cheeseY, cheeseW, cheeseH;
-  int appleX, appleY, appleW, appleH;
-  int batterX, batterY, batterW, batterH;
-  int potatoX, potatoY, potatoW, potatoH;
+  int bagelX, bagelY, bagelW, bagelH;
+  int cerealX, cerealY, cerealW, cerealH;
+  int oatmealX, oatmealY, oatmealW, oatmealH;
   int milkX, milkY, milkW, milkH;
-  boolean holdingEgg, holdingCheese, holdingApple, holdingBatter, holdingPotato;
+  boolean holdingEgg, holdingCheese, holdingbagel, holdingcereal, holdingoatmeal;
 
   Ingredients() {
     eggX = 910;
@@ -22,26 +22,26 @@ class Ingredients {
     cheese = loadImage("cheese.png");
     cheese.resize(cheeseW, cheeseH);
         
-    appleX = 980;
-    appleY = 180;
-    appleW = 30;
-    appleH = 31;
-    apple = loadImage("apple.png");
-    apple.resize(appleW, appleH);
+    bagelX = 985;
+    bagelY = 185;
+    bagelW = 35;
+    bagelH = 28;
+    bagel = loadImage("bagel.png");
+    bagel.resize(bagelW, bagelH);
     
-    batterX = 915;
-    batterY = 225;
-    batterW = 47;
-    batterH = 47;
-    batter = loadImage("batter.png");
-    batter.resize(batterW, batterH);
+    cerealX = 915;
+    cerealY = 220;
+    cerealW = 47;
+    cerealH = 47;
+    cereal = loadImage("cereal.png");
+    cereal.resize(cerealW, cerealH);
     
-    potatoX = 960;
-    potatoY = 240;
-    potatoW = 43;
-    potatoH = 30;
-    potato = loadImage("potato.png");
-    potato.resize(potatoW, potatoH);
+    oatmealX = 965;
+    oatmealY = 233;
+    oatmealW = 30;
+    oatmealH = 35;
+    oatmeal = loadImage("oatmeal.png");
+    oatmeal.resize(oatmealW, oatmealH);
     
     milkX = 1005;
     milkY = 235;
@@ -69,29 +69,29 @@ class Ingredients {
     }
     return value;
   }
-  boolean onApple(int x, int y) {
+  boolean onBagel(int x, int y) {
     boolean value = true;
-    if (!(x >= appleX && x <= appleX + appleW)) {
+    if (!(x >= bagelX && x <= bagelX + bagelW)) {
       value = false;
-    } else if (!(y >= appleY && y <= appleY + appleH)) {
+    } else if (!(y >= bagelY && y <= bagelY + bagelH)) {
       value = false;
     }
     return value;
   }
-  boolean onBatter(int x, int y) {
+  boolean onCereal(int x, int y) {
     boolean value = true;
-    if (!(x >= batterX && x <= batterX + batterW)) {
+    if (!(x >= cerealX && x <= cerealX + cerealW)) {
       value = false;
-    } else if (!(y >= batterY && y <= batterY + batterH)) {
+    } else if (!(y >= cerealY && y <= cerealY + cerealH)) {
       value = false;
     }
     return value;
   }
-  boolean onPotato(int x, int y) {
+  boolean onOatmeal(int x, int y) {
     boolean value = true;
-    if (!(x >= potatoX && x <= potatoX + potatoW)) {
+    if (!(x >= oatmealX && x <= oatmealX + oatmealW)) {
       value = false;
-    } else if (!(y >= potatoY && y <= potatoY + potatoH)) {
+    } else if (!(y >= oatmealY && y <= oatmealY + oatmealH)) {
       value = false;
     }
     return value;
@@ -107,10 +107,10 @@ class Ingredients {
   }
   void drawImages() {
     image(cheese, cheeseX, cheeseY);
-    image(potato, potatoX, potatoY);
+    image(oatmeal, oatmealX, oatmealY);
     image(milk, milkX, milkY);
-    image(apple, appleX, appleY);
-    image(batter, batterX, batterY);
+    image(bagel, bagelX, bagelY);
+    image(cereal, cerealX, cerealY);
     image(egg, eggX, eggY);
   }
 }
