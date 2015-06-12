@@ -15,7 +15,8 @@ PImage egg, cheese, bagel, cereal, oatmeal, milk;
 int cx=600;
 int cy= 200; //location of character
 int speed=35;//speed of movement
-boolean moveRight, moveLeft, moveUp;
+boolean moveRight, moveLeft;
+boolean frontFacing=true;
 boolean carrying, tool;
 //Modes for Game
 int mode;
@@ -117,16 +118,20 @@ void draw() {
 
     front=loadImage("front.png");
     front.resize(135, 500);
-    if (!moveRight &&!moveLeft) {
+    if (frontFacing) {
       image(front, cx, cy);
     } else if (moveRight) {
       image(right, cx, cy);
-      moveRight=false;
+     frontFacing=false;
+     
     } else if (moveLeft) {
+      moveRight=false;
       image(left, cx, cy);
-      moveLeft=false;
+      frontFacing=false;
+      
     }
-  } else if (mode == SETTINGS) {
+  }
+  else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
     displayInstructions();
@@ -185,19 +190,22 @@ void keyPressed() {
   //mode = INSTRUCTIONS; 
   if (key == CODED) {
     if (keyCode == LEFT&&cx>425) {
+      frontFacing=false;
+      moveRight=false;
       moveLeft=true;
       left=loadImage("left.png");
       left.resize(145, 500);
       cx-=speed;
       image(left, cx, cy);
+     
     } else if (keyCode == RIGHT&&cx<750) {
+      frontFacing=false;
       moveRight = true;
       right=loadImage("right.png");
       right.resize(145, 500);
       cx+=speed;
       image(right, cx, cy);
-    } else if (keyCode == UP) {
-      moveUp = true;
+      
     }
   }
 }
