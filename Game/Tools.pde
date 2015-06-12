@@ -38,7 +38,7 @@ class Tools {
 
   void go(int x, int y) {
     //status bar? use two rectangles attached to one another with different colors for each bar.
-    checkXY(x,y);
+    checkXY(x, y);
     if (usingIron) {
     }
     if (usingToaster) {
@@ -48,15 +48,14 @@ class Tools {
     if (usingPot) {
     }
   }
-  void checkXY(int x, int y){
-    if (onBoard()){
+  void checkXY(int x, int y) {
+    if (onBoard()) {
       useBoard();
-    }
-    else if (onIron()){
+    } else if (onIron()) {
       useIron();
-    }else if (onToaster()){
+    } else if (onToaster()) {
       useToaster();
-    }else if (onPot()){
+    } else if (onPot()) {
       usePot();
     }
   }

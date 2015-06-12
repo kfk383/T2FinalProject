@@ -225,5 +225,6 @@ void keyReleased() {
 }
 void mouseClicked() {
     ingredients.checkMouse(mouseX, mouseY);
+    tools.checkXY(mouseX, mouseY);
   }
 
