@@ -58,3 +58,24 @@ Monday, June 8
 - Finished editing images; finishing up character sprites
 - Working on mouse control functions of tools
 - Starting on recipes
+
+Tuesday, June 9
+- Starting on status bar for using the tools
+- Photoshopped shelves on background to be empty
+- Added ingredients to the game screen
+- Added animation of player
+
+Wednesday, June 10
+- Changing animation of player to mouse control
+- Working on specific recipes
+- Getting images of finished dishes
+- Added inventory, which can store max of two ingredients.
+
+Thursday, June 11
+- Converting to mouse control of player
+- Replacing ingredients on shelf
+- Connecting individual classes with one another
+
+Friday, June 12
+- Working on inventory and recipes
+- Converting to mouse control for player

@@ -53,6 +53,10 @@ class Ingredients {
     milk.resize(milkW, milkH);
   }
 
+  String[] getIngredients() {
+    return currIngredients;
+  }
+
   void checkMouse(int x, int y) {
     if (onEgg(x, y)) {
       inventory.addIngredient("egg.png");

@@ -35,6 +35,30 @@ class Tools {
     ovenW = 195;
     ovenH = 195;
   }
+
+  void go() {
+    //status bar? use two rectangles attached to one another with different colors for each bar.
+    if (usingIron) {
+    }
+    if (usingToaster) {
+    }
+    if (usingBoard) {
+    }
+    if (usingPot) {
+    }
+  }
+  void useIron() {
+    usingIron = true;
+  }
+  void useToaster() {
+    usingToaster = true;
+  }
+  void useBoard() {
+    usingBoard = true;
+  }
+  void usePot() {
+    usingPot = true;
+  }
   boolean onBoard(int x, int y) {
     boolean value = true;
     if (!(x >= boardX && x <= boardX+boardW)) {
@@ -71,27 +95,5 @@ class Tools {
     }
     return value;
   }
-  void go() {
-    //status bar? use two rectangles attached to one another with different colors for each bar.
-    if (usingIron) {
-    }
-    if (usingToaster) {
-    }
-    if (usingBoard) {
-    }
-    if (usingPot) {
-    }
-  }
-  void useIron() {
-    usingIron = true;
-  }
-  void useToaster() {
-    usingToaster = true;
-  }
-  void useBoard() {
-    usingBoard = true;
-  }
-  void usePot() {
-    usingPot = true;
-  }
 }
+
