@@ -1,5 +1,5 @@
 class InstructionsText {
-  String line1 = "Welcome to __________!";
+  String line1 = "Welcome!";
   String line2 = "In this game, you will attempt to discover a variety of recipes for common diner breakfasts.";
   String line3 = "You will be given a set of ingredients and tools, with which you can create different combinations of foods.";
   String line4 = "Using a mouse-controlled character, you can move around the kitchen and move"; 

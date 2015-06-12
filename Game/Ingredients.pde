@@ -5,6 +5,7 @@ class Ingredients {
   int cerealX, cerealY, cerealW, cerealH;
   int oatmealX, oatmealY, oatmealW, oatmealH;
   int milkX, milkY, milkW, milkH;
+  String[] currIngredients = new String[2];
 
   Inventory inventory = new Inventory();
 
@@ -55,16 +56,28 @@ class Ingredients {
   void checkMouse(int x, int y) {
     if (onEgg(x, y)) {
       inventory.addIngredient("egg.png");
+      currIngredients[1] = currIngredients[0];
+      currIngredients[0] = "egg";
     } else if (onCheese(x, y)) {
       inventory.addIngredient("cheese.png");
+      currIngredients[1] = currIngredients[0];
+      currIngredients[0] = "cheese";
     } else if (onBagel(x, y)) {
       inventory.addIngredient("bagel.png");
+      currIngredients[1] = currIngredients[0];
+      currIngredients[0] = "bagel";
     } else if (onCereal(x, y)) {
       inventory.addIngredient("cereal.png");
+      currIngredients[1] = currIngredients[0];
+      currIngredients[0] = "cereal";
     } else if (onOatmeal(x, y)) {
       inventory.addIngredient("oatmeal.png");
+      currIngredients[1] = currIngredients[0];
+      currIngredients[0] = "oatmeal";
     } else if (onMilk(x, y)) {
       inventory.addIngredient("milk.png");
+      currIngredients[1] = currIngredients[0];
+      currIngredients[0] = "milk";
     }
   }
 
