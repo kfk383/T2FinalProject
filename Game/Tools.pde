@@ -128,18 +128,15 @@ class Tools {
     for(String s:toolsClicked){
           if(s!=null){ 
      if(s.equals(t)){ 
-       text("truth",100,100); 
-       text(toolsClicked[0], 10,10);
        return true;
-        
     }
+    else{
+      text("boiled eggs aren't made there!",20,80);
+          }
           }
           else{
-          text("false",100,10);return false;}
-     
-    
+          return false;}    
     }
-    text("false",100,10);
    return false;
    }
 }

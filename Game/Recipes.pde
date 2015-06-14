@@ -10,10 +10,11 @@ class Recipes {
     tools= new Tools();
     textSize(20);
     text("Level "+level, 600,50);
+    text("Let's boil an egg!",600,65);
           if(level==0&&ingredients.checkInvent("egg")&&tools.checktool("Pot") ){
  text("The egg is in the pot!",20,80);
 ing=loadImage("eggarray.png").get(0,0,50,40);
-            image(ing,243,360);
+            image(ing,240,360);
 
   
 }
