@@ -13,7 +13,7 @@ int level=0;
 
 //Images
 PImage menuImg, startImg, front, right, left;
-PImage iron, pot; 
+PImage iron, pot, fryingpan,bowl; 
 PImage egg, cheese, bagel, cereal, oatmeal, milk; 
 PImage[] eggn;
 boolean carrying, tool;
@@ -25,13 +25,19 @@ int SETTINGS = 2;
 int INSTRUCTIONS = 3;
 
 //toolthings
-boolean correctTool;
+//boolean correctTool;
 String[] toolsClicked=new String[2];
 
 //ingredients at hand
 boolean clickEgg;
 boolean clickCheese, clickBagel, clickCereal, clickOatmeal,clickMilk;
 String[] currIngredients = new String[2];
+
+//statusbar things/cooking controls
+boolean correctIng=false;
+int mouseCount;
+boolean correctTool;
+boolean lvlcomplete;
 
 //Classes Implemented
 Player player; 
@@ -41,6 +47,7 @@ Tools tools;
 Recipes r;
 Inventory inventory;
 InstructionsText instructions;
+
 
 void setup() {
   //instantiate implemented classes
@@ -115,12 +122,18 @@ void draw() {
     }
   } else if (mode == START) {
     background(startImg);
+    fryingpan=loadImage("fryingpan.png");
+    fryingpan.resize(100,60);
+   image(fryingpan, 120,355);
     iron = loadImage("iron.png");
     iron.resize(76, 100);
     image(iron, 345, 280);
     pot = loadImage("pot.png");
     pot.resize(87, 65);
     image(pot, 205, 350);
+bowl=loadImage("bowl.png");
+bowl.resize(50,30);
+image(bowl,480,320);
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
     player.drawImage();
     player.move(destinationX);
@@ -193,6 +206,7 @@ void mouseClicked() {
   if (mouseX > 205 && mouseX < 1075) {
     destinationX = mouseX;
  }
+ recipes.foodmove(mouseX,mouseY);
 }
 
 
