@@ -16,11 +16,10 @@ class Player {
     left.resize(playerW, playerH);
   }
 
-  boolean move(int x) { //x-coordinate of the destination
+  void move(int x) { //x-coordinate of the destination
     if (playerX - x > -30 || playerX - x < 30) {
       moving = false;
       goingLeft = false;
-      return true;
     } else if (playerX < x) {
       moving = true;
       goingLeft = false;
@@ -30,7 +29,9 @@ class Player {
       goingLeft = true;
       playerX -= dx;
     }
-    return false;
+  }
+  boolean arrived(){
+     return (playerX - x > -30 || playerX - x < 30);
   }
   void draw() {
     if (!moving) {

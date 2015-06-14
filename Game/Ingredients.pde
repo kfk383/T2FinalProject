@@ -57,38 +57,32 @@ class Ingredients {
     return currIngredients;
   }
 
-  boolean checkMouse(int x, int y) {
+  void checkMouse(int x, int y) {
     if (onEgg(x, y)) {
       inventory.addIngredient("egg.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "egg";
-      return true;
     } else if (onCheese(x, y)) {
       inventory.addIngredient("cheese.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "cheese";
-      return true;
     } else if (onBagel(x, y)) {
       inventory.addIngredient("bagel.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "bagel";
-      return true;
     } else if (onCereal(x, y)) {
       inventory.addIngredient("cereal.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "cereal";
-      return true;
     } else if (onOatmeal(x, y)) {
       inventory.addIngredient("oatmeal.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "oatmeal";
-      return true;
     } else if (onMilk(x, y)) {
       inventory.addIngredient("milk.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "milk";
-      return true;
-    }return false;
+    }
   }
 
   boolean onEgg(int x, int y) {
