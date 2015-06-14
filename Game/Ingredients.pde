@@ -7,12 +7,12 @@ class Ingredients {
   int cerealX, cerealY, cerealW, cerealH;
   int oatmealX, oatmealY, oatmealW, oatmealH;
   int milkX, milkY, milkW, milkH;
-  String[] currIngredients = new String[2];
+ 
 
   Inventory inventory = new Inventory();
 
   void start(){
-    egg=loadImage("eggt.png");
+    egg=loadImage("eggarray.png");
    int xegg=0;
     for(int i=0; i<3;i++){
       eggn[i]=egg.get(xegg,0,50,40);
@@ -25,7 +25,7 @@ class Ingredients {
     eggY = 188;
     eggW = 31;
     eggH = 25;
-    egg = loadImage("eggt.png").get(0,0,50,40);
+    egg = loadImage("eggarray.png").get(0,0,50,40);
     egg.resize(eggW, eggH);
 
     cheeseX = 945;
@@ -71,7 +71,7 @@ class Ingredients {
   void checkMouse(int x, int y) {
     if (onEgg(x, y)) {
       
-      inventory.addIngredient("eggt.png");
+      inventory.addIngredient("eggarray.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "egg";
       
@@ -108,14 +108,18 @@ class Ingredients {
         clickEgg=true; 
         return true;
     }
+  
       }
-      return false;
+       return false;
     
     }
     return false;
    }
   
-      
+   void addFoodAnim(){
+     image(egg,100,200);
+   }
+     
 
   boolean onEgg(int x, int y) {
     boolean value = true;

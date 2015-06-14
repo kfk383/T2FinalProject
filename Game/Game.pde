@@ -26,6 +26,7 @@ int INSTRUCTIONS = 3;
 //ingredients at hand
 boolean clickEgg;
 boolean clickCheese, clickBagel, clickCereal, clickOatmeal,clickMilk;
+String[] currIngredients = new String[2];
 
 //Classes Implemented
 Player player; 
@@ -118,6 +119,7 @@ void draw() {
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
     player.drawImage();
     player.move(destinationX);
+    cookit();
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
@@ -165,11 +167,6 @@ void updateMouse(int x, int y) {
 }
 //===============================PLAYER INTERACTION===================================
 
-/*void cookit(){
-  
-  recipes.cook(mouseX, mouseY);
-  text("cookit works", 400,50);
-}*/
 
 
 
@@ -191,7 +188,13 @@ void mouseClicked() {
   if (mouseX > 205 && mouseX < 1075) {
     destinationX = mouseX;
  }
-if(ingredients.checkInvent("egg")){
- recipes.cook(mouseX, mouseY);
 }
+void cookit(){
+  
+ if(ingredients.checkInvent("egg")){
+ recipes.cook();
 }
+  text("cookit works", 400,50);
+}
+
+
