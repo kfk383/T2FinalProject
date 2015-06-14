@@ -24,23 +24,16 @@ class Inventory {
   }
 
   void addIngredient(String filename) {
-  ingr=new String[2];
+  
     ingredient2 = ingredient1;
-    ingr[0]=filename;
-    ingr[1]=ingrt;
+    
     ingredient1 = loadImage(filename);
     ingredient1.resize(50,50);
-  ingrt=filename;  
+  
   }
-  void CheckInventory(String i ){
-    
-    for(String s : ingr){
-      text(s,500,50); 
-      if(s.equals(i)){
-        clickEgg=true; 
-    }
-    }
-  }
+
+
+  
   
   void drawImages(){
     fill(100, 0, 0);
