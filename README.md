@@ -79,3 +79,7 @@ Thursday, June 11
 Friday, June 12
 - Working on inventory and recipes
 - Converting to mouse control for player
+
+Saturday, June 13
+- Worked on status bar for tools
+- Working on developing recipes
