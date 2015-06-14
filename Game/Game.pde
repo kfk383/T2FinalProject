@@ -1,3 +1,4 @@
+
 //==========================================CONSTANTS AND SETUP FOR GAME=============================
 //Button Constants
 int startX, startY; // the location of the start button
@@ -13,7 +14,7 @@ int destinationX;
 PImage menuImg, startImg, front, right, left;
 PImage iron, pot; 
 PImage egg, cheese, bagel, cereal, oatmeal, milk; 
-PImage[] egg;
+PImage[] eggn;
 boolean carrying, tool;
 //Modes for Game
 int mode;
@@ -164,11 +165,11 @@ void updateMouse(int x, int y) {
 }
 //===============================PLAYER INTERACTION===================================
 
-void cookit(){
-  inventory.CheckInventory("egg.png");
+/*void cookit(){
+  
   recipes.cook(mouseX, mouseY);
   text("cookit works", 400,50);
-}
+}*/
 
 
 
@@ -187,7 +188,7 @@ void mouseClicked() {
   tools.checkXY(mouseX, mouseY);
   ingredients.checkMouse(mouseX, mouseY);
   destinationX = mouseX;
-inventory.CheckInventory("egg.png");
+if(ingredients.checkInvent("egg")){
  recipes.cook(mouseX, mouseY);
 }
-
+}

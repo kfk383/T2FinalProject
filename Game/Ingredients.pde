@@ -1,4 +1,6 @@
+
 class Ingredients {
+  
   int eggX, eggY, eggW, eggH;
   int cheeseX, cheeseY, cheeseW, cheeseH;
   int bagelX, bagelY, bagelW, bagelH;
@@ -10,19 +12,20 @@ class Ingredients {
   Inventory inventory = new Inventory();
 
   void start(){
-    egg=loadImage("egg.png");
+    egg=loadImage("eggt.png");
    int xegg=0;
     for(int i=0; i<3;i++){
-      egg[i]=egg.get(xegg,0,50,40);
+      eggn[i]=egg.get(xegg,0,50,40);
       xegg+=50;
     }
+  }
     
   Ingredients() {
     eggX = 910;
     eggY = 188;
     eggW = 31;
     eggH = 25;
-    egg = loadImage("egg.png");
+    egg = loadImage("eggt.png").get(0,0,50,40);
     egg.resize(eggW, eggH);
 
     cheeseX = 945;
@@ -68,7 +71,7 @@ class Ingredients {
   void checkMouse(int x, int y) {
     if (onEgg(x, y)) {
       
-      inventory.addIngredient("egg.png");
+      inventory.addIngredient("eggt.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "egg";
       
@@ -96,6 +99,23 @@ class Ingredients {
       currIngredients[0] = "milk";
     }
   }
+  boolean checkInvent(String i){
+
+   for(String s:currIngredients){
+     if(s!=null){ 
+     if(s.equals(i)){
+    // if(Arrays.asList(currIngredients).contains(i)){
+        clickEgg=true; 
+        return true;
+    }
+      }
+      return false;
+    
+    }
+    return false;
+   }
+  
+      
 
   boolean onEgg(int x, int y) {
     boolean value = true;
@@ -160,5 +180,5 @@ class Ingredients {
     image(egg, eggX, eggY);
     inventory.drawImages();
   }
-}
+  }
 

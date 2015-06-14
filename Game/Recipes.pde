@@ -5,11 +5,12 @@ class Recipes {
   PImage[] ingred;
   PImage ing;
   void cook(int x, int y){
-          if(clickEgg){
-            ing=loadImage("egg.png");
+          
+            ing=loadImage("eggt.png");
             image(ing,100,200);
-          }
-          else{text("w=uggghhh", 600,50);}
+          
+          //else{text("w=uggghhh", 600,50);
+       //   }
      //clickegg is not true meaning that checkInventory is not working and the string array is not updating     
          
          
@@ -25,4 +26,5 @@ for recipes:
 first does user have ingredient required in inventory
 next user clicks on correct tool?
 next animation
-//click on tool and ingredient will appear. if final image matches what you need you win round.
+click on tool and ingredient will appear. if final image matches what you need you win round.*/
+
