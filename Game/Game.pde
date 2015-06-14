@@ -110,13 +110,8 @@ void draw() {
     pot.resize(87, 65);
     image(pot, 205, 350);
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
-    player.draw();
-    if (movePlayer) {
-      player.move(destinationX);
-      if (player.arrived()){
-       movePlayer = false; 
-      }
-    }
+    player.move(destinationX);
+    player.drawImage();
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
@@ -177,7 +172,8 @@ void keyPressed() {
 void mouseClicked() {
   tools.checkXY(mouseX, mouseY);
   ingredients.checkMouse(mouseX, mouseY);
-
   movePlayer = true;
   destinationX = mouseX;
+  println(destinationX);
 }
+

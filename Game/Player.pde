@@ -1,13 +1,21 @@
 class Player {
   PImage front, right, left;
   int dx = 15;
-  int playerX = 600;
-  int playerY = 200;
-  int playerW = 135;
-  int playerH = 500;
-  boolean moving, goingLeft;
+  int playerX;
+  int playerY;
+  int playerW;
+  int playerH;
+  int mode;
+
+  int STANDING = 0;
+  int L = 1;
+  int R = 2;
 
   Player() {
+    playerX = 600;
+    playerY = 200;
+    playerW = 135;
+    playerH = 500;
     front=loadImage("front.png");
     front.resize(playerW, playerH);
     right=loadImage("right.png");
@@ -17,26 +25,23 @@ class Player {
   }
 
   void move(int x) { //x-coordinate of the destination
-    if (playerX - x > -30 || playerX - x < 30) {
-      moving = false;
-      goingLeft = false;
+    if (playerX - x > -100 || playerX - x < 100) {
+      mode = STANDING;
     } else if (playerX < x) {
-      moving = true;
-      goingLeft = false;
+      mode = R;
       playerX += dx;
     } else {
-      moving = true;
-      goingLeft = true;
+      mode = L;
       playerX -= dx;
     }
   }
-  boolean arrived(){
-     return (playerX - x > -30 || playerX - x < 30);
+  boolean arrived(int x) {
+    return (playerX - x > -100 || playerX - x < 100);
   }
-  void draw() {
-    if (!moving) {
+  void drawImage() {
+    if (mode == STANDING) {
       image(front, playerX, playerY);
-    } else if (goingLeft) {
+    } else if (mode == L) {
       image(left, playerX, playerY);
     } else {
       image(right, playerX, playerY);
