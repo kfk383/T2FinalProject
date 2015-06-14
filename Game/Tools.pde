@@ -48,7 +48,7 @@ class Tools {
     if (usingPot) {
     }
   }
-  void checkXY(int x, int y) {
+  boolean checkXY(int x, int y) {
     if (onBoard(x, y)) {
       useBoard();
     } else if (onIron(x, y)) {
@@ -58,6 +58,10 @@ class Tools {
     } else if (onPot(x, y)) {
       usePot();
     }
+    if (usingBoard || usingIron || usingPot || usingToaster){
+       return true; 
+    }
+    return false;
   }
   void useIron() {
     usingIron = true;

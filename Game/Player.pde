@@ -1,35 +1,48 @@
 class Player {
   PImage front, right, left;
-  
-  int mode, numObjects; // what the character is currently doing and the number of objects that the character is carrying
-  /*Constants for mode values (possible actions of the character)
-   N = walking towards the screen
-   S = walking away from the screen
-   W = walking to the right
-   E = walking to the left
-   */
-  int STANDING = 0;
-  int N_WALKING = 1;
-  int S_WALKING = 2;
-  int W_WALKING = 3;
-  int E_WALKING = 4;
-  int NW_WALKING = 5;
-  int NE_WALKING = 6;
-  int SW_WALKING = 7;
-  int SE_WALKING = 8;
-  int dy, dx; 
+  int dx = 15;
+  int playerX = 600;
+  int playerY = 200;
+  int playerW = 135;
+  int playerH = 500;
+  boolean moving, goingLeft;
 
-  void start(){
-  front=loadImage("front.png");
-  front.resize(135,500);
-  right=loadImage("right.png");
-  right.resize(135,500);
-  left=loadImage("left.png");
-  left.resize(135,500);
+  Player() {
+    front=loadImage("front.png");
+    front.resize(playerW, playerH);
+    right=loadImage("right.png");
+    right.resize(playerW, playerH);
+    left=loadImage("left.png");
+    left.resize(playerW, playerH);
   }
-  
-  
-  
-  
+
+  boolean move(int x) { //x-coordinate of the destination
+    if (playerX - x > -30 || playerX - x < 30) {
+      moving = false;
+      goingLeft = false;
+      return true;
+    } else if (playerX < x) {
+      moving = true;
+      goingLeft = false;
+      playerX += dx;
+    } else {
+      moving = true;
+      goingLeft = true;
+      playerX -= dx;
+    }
+    return false;
+  }
+  void draw() {
+    if (!moving) {
+      image(front, playerX, playerY);
+    } else if (goingLeft) {
+      image(left, playerX, playerY);
+    } else {
+      image(right, playerX, playerY);
+    }
+  }
+
+  //size 145,500
+  //location 600,200
 }
 

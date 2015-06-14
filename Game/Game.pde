@@ -7,16 +7,13 @@ color buttonColor, highlightColor;
 int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
+boolean movePlayer;
+int destinationX;
 
 //Images
 PImage menuImg, startImg, front, right, left;
 PImage iron, pot; 
 PImage egg, cheese, bagel, cereal, oatmeal, milk; 
-int cx=600;
-int cy= 200; //location of character
-int speed=35;//speed of movement
-boolean moveRight, moveLeft;
-boolean frontFacing=true;
 boolean carrying, tool;
 //Modes for Game
 int mode;
@@ -30,7 +27,6 @@ Player player;
 Ingredients ingredients;
 Recipes recipes;
 Tools tools;
-Move m;
 Recipes r;
 Inventory inventory;
 InstructionsText instructions;
@@ -41,7 +37,6 @@ void setup() {
   ingredients = new Ingredients();
   recipes = new Recipes();
   tools = new Tools();
-  m = new Move();
   r= new Recipes();
   instructions = new InstructionsText();
 
@@ -115,23 +110,13 @@ void draw() {
     pot.resize(87, 65);
     image(pot, 205, 350);
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
-
-    front=loadImage("front.png");
-    front.resize(135, 500);
-    if (frontFacing) {
-      image(front, cx, cy);
-    } else if (moveRight) {
-      image(right, cx, cy);
-     frontFacing=false;
-     
-    } else if (moveLeft) {
-      moveRight=false;
-      image(left, cx, cy);
-      frontFacing=false;
-      
+    player.draw();
+    if (movePlayer == true) {
+      if (player.move(destinationX)){
+         movePlayer = false; 
+      }
     }
-  }
-  else if (mode == SETTINGS) {
+  } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
     displayInstructions();
@@ -186,45 +171,12 @@ void mouseReleased() {
 void keyPressed() {
   if (keyCode == 32) {
     mode = MENU;
-  }//else if (keyCode == 32){
-  //mode = INSTRUCTIONS; 
-  if (key == CODED) {
-    if (keyCode == LEFT&&cx>425) {
-      frontFacing=false;
-      moveRight=false;
-      moveLeft=true;
-      left=loadImage("left.png");
-      left.resize(145, 500);
-      cx-=speed;
-      image(left, cx, cy);
-     
-    } else if (keyCode == RIGHT&&cx<750) {
-      frontFacing=false;
-      moveRight = true;
-      right=loadImage("right.png");
-      right.resize(145, 500);
-      cx+=speed;
-      image(right, cx, cy);
-      
-    }
   }
-}
-
-void keyReleased() {
-  /*  if (key == CODED) {
-   if (keyCode == LEFT) {       
-   moveLeft = false;
-   image(left,cx,cy);
-   } else if (keyCode == RIGHT) {
-   moveRight = false;
-   } else if (keyCode == UP) {
-   moveUp = false;
-   }
-   }
-   */
 }
 void mouseClicked() {
-    ingredients.checkMouse(mouseX, mouseY);
-    tools.checkXY(mouseX, mouseY);
+  if (tools.checkXY(mouseX, mouseY) || ingredients.checkMouse(mouseX, mouseY)) {
+    movePlayer = true;
+    destinationX = mouseX;
   }
+}
 
