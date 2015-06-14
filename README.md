@@ -83,3 +83,7 @@ Friday, June 12
 Saturday, June 13
 - Worked on status bar for tools
 - Working on developing recipes
+- Finished mouse control
+
+Sunday, June 14
+- Implement recipes; tie together recipes and ingredients

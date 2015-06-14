@@ -1,4 +1,3 @@
-
 class Ingredients {
   
   int eggX, eggY, eggW, eggH;
@@ -7,12 +6,13 @@ class Ingredients {
   int cerealX, cerealY, cerealW, cerealH;
   int oatmealX, oatmealY, oatmealW, oatmealH;
   int milkX, milkY, milkW, milkH;
+  PImage eggArr;
  
 
   Inventory inventory = new Inventory();
 
   void start(){
-    egg=loadImage("eggarray.png");
+    eggArr=loadImage("eggarray.png");
    int xegg=0;
     for(int i=0; i<3;i++){
       eggn[i]=egg.get(xegg,0,50,40);
@@ -23,9 +23,9 @@ class Ingredients {
   Ingredients() {
     eggX = 910;
     eggY = 188;
-    eggW = 31;
-    eggH = 25;
-    egg = loadImage("eggarray.png").get(0,0,50,40);
+    eggW = 35;
+    eggH = 30;
+    egg = loadImage("egg.png");
     egg.resize(eggW, eggH);
 
     cheeseX = 945;
@@ -71,7 +71,7 @@ class Ingredients {
   void checkMouse(int x, int y) {
     if (onEgg(x, y)) {
       
-      inventory.addIngredient("eggarray.png");
+      inventory.addIngredient("egg.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "egg";
       
