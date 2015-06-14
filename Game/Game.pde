@@ -172,6 +172,8 @@ void keyPressed() {
 void mouseClicked() {
   tools.checkXY(mouseX, mouseY);
   ingredients.checkMouse(mouseX, mouseY);
-  destinationX = mouseX;
+  if (mouseX > 205 && mouseX < 1075) {
+    destinationX = mouseX;
+  }
 }
 
