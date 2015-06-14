@@ -104,8 +104,7 @@ class Ingredients {
    for(String s:currIngredients){
      if(s!=null){ 
      if(s.equals(i)){
-    // if(Arrays.asList(currIngredients).contains(i)){
-        clickEgg=true; 
+        //clickEgg=true; 
         return true;
     }
   

@@ -9,6 +9,7 @@ int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
 int destinationX;
+int level=0;
 
 //Images
 PImage menuImg, startImg, front, right, left;
@@ -22,6 +23,10 @@ int MENU = 0;
 int START = 1;
 int SETTINGS = 2;
 int INSTRUCTIONS = 3;
+
+//toolthings
+boolean correctTool;
+String[] toolsClicked=new String[2];
 
 //ingredients at hand
 boolean clickEgg;
@@ -119,7 +124,7 @@ void draw() {
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
     player.drawImage();
     player.move(destinationX);
-    cookit();
+    recipes.cook();
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
@@ -189,12 +194,6 @@ void mouseClicked() {
     destinationX = mouseX;
  }
 }
-void cookit(){
-  
- if(ingredients.checkInvent("egg")){
- recipes.cook();
-}
-  text("cookit works", 400,50);
-}
+
 
 

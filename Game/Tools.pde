@@ -34,12 +34,15 @@ class Tools {
     ovenY = 440;
     ovenW = 195;
     ovenH = 195;
+    
   }
 
   void go(int x, int y) {
     //status bar? use two rectangles attached to one another with different colors for each bar.
     checkXY(x, y);
+   
     if (usingIron) {
+
     }
     if (usingToaster) {
     }
@@ -49,14 +52,27 @@ class Tools {
     }
   }
   void checkXY(int x, int y) {
+    
     if (onBoard(x, y)) {
       useBoard();
-    } else if (onIron(x, y)) {
+       toolsClicked[1]=toolsClicked[0];
+       toolsClicked[0]="Board";
+    }
+      
+ else if (onIron(x, y)) {
       useIron();
+           
+       toolsClicked[1]=toolsClicked[0];
+       toolsClicked[0]="Iron";
+       text(toolsClicked[0],10,50);
     } else if (onToaster(x, y)) {
       useToaster();
+      toolsClicked[1]=toolsClicked[0];
+       toolsClicked[0]="Toaster";
     } else if (onPot(x, y)) {
       usePot();
+      toolsClicked[1]=toolsClicked[0];
+       toolsClicked[0]="Pot";
     }
   }
   void useIron() {
@@ -107,5 +123,24 @@ class Tools {
     }
     return value;
   }
+  boolean checktool(String t){
+    
+    for(String s:toolsClicked){
+          if(s!=null){ 
+     if(s.equals(t)){ 
+       text("truth",100,100); 
+       text(toolsClicked[0], 10,10);
+       return true;
+        
+    }
+          }
+          else{
+          text("false",100,10);return false;}
+     
+    
+    }
+    text("false",100,10);
+   return false;
+   }
 }
 
