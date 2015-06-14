@@ -7,7 +7,6 @@ color buttonColor, highlightColor;
 int buttonW = 225;
 int buttonH = 60;
 boolean onStart, onInstructions, onSettings, clicked;
-boolean movePlayer;
 int destinationX;
 
 //Images
@@ -55,6 +54,7 @@ void setup() {
   setX = 225;
   setY = 525;
   mode = MENU;
+  destinationX = 600;
 }
 //===========================================DRAW FUNCTION=====================================
 void draw() {
@@ -110,8 +110,8 @@ void draw() {
     pot.resize(87, 65);
     image(pot, 205, 350);
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
-    player.move(destinationX);
     player.drawImage();
+    player.move(destinationX);
   } else if (mode == SETTINGS) {
     displaySettings();
   } else if (mode == INSTRUCTIONS) {
@@ -172,8 +172,6 @@ void keyPressed() {
 void mouseClicked() {
   tools.checkXY(mouseX, mouseY);
   ingredients.checkMouse(mouseX, mouseY);
-  movePlayer = true;
   destinationX = mouseX;
-  println(destinationX);
 }
 

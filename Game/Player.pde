@@ -1,6 +1,6 @@
 class Player {
   PImage front, right, left;
-  int dx = 15;
+  int dx = 7;
   int playerX;
   int playerY;
   int playerW;
@@ -19,13 +19,13 @@ class Player {
     front=loadImage("front.png");
     front.resize(playerW, playerH);
     right=loadImage("right.png");
-    right.resize(playerW, playerH);
+    right.resize(playerW+50, playerH);
     left=loadImage("left.png");
-    left.resize(playerW, playerH);
+    left.resize(playerW+50, playerH);
   }
 
   void move(int x) { //x-coordinate of the destination
-    if (playerX - x > -100 || playerX - x < 100) {
+    if (playerX - x > -75 && playerX - x < 75) {
       mode = STANDING;
     } else if (playerX < x) {
       mode = R;
