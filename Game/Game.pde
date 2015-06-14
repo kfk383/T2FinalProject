@@ -13,6 +13,7 @@ int destinationX;
 PImage menuImg, startImg, front, right, left;
 PImage iron, pot; 
 PImage egg, cheese, bagel, cereal, oatmeal, milk; 
+PImage[] egg;
 boolean carrying, tool;
 //Modes for Game
 int mode;
@@ -20,6 +21,10 @@ int MENU = 0;
 int START = 1;
 int SETTINGS = 2;
 int INSTRUCTIONS = 3;
+
+//ingredients at hand
+boolean clickEgg;
+boolean clickCheese, clickBagel, clickCereal, clickOatmeal,clickMilk;
 
 //Classes Implemented
 Player player; 
@@ -158,6 +163,15 @@ void updateMouse(int x, int y) {
   }
 }
 //===============================PLAYER INTERACTION===================================
+
+void cookit(){
+  inventory.CheckInventory("egg.png");
+  recipes.cook(mouseX, mouseY);
+  text("cookit works", 400,50);
+}
+
+
+
 void mousePressed() {
   clicked = true;
 }
@@ -173,5 +187,7 @@ void mouseClicked() {
   tools.checkXY(mouseX, mouseY);
   ingredients.checkMouse(mouseX, mouseY);
   destinationX = mouseX;
+inventory.CheckInventory("egg.png");
+ recipes.cook(mouseX, mouseY);
 }
 

@@ -9,6 +9,14 @@ class Ingredients {
 
   Inventory inventory = new Inventory();
 
+  void start(){
+    egg=loadImage("egg.png");
+   int xegg=0;
+    for(int i=0; i<3;i++){
+      egg[i]=egg.get(xegg,0,50,40);
+      xegg+=50;
+    }
+    
   Ingredients() {
     eggX = 910;
     eggY = 188;
@@ -59,17 +67,21 @@ class Ingredients {
 
   void checkMouse(int x, int y) {
     if (onEgg(x, y)) {
+      
       inventory.addIngredient("egg.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "egg";
+      
     } else if (onCheese(x, y)) {
       inventory.addIngredient("cheese.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "cheese";
+      clickCheese=true;
     } else if (onBagel(x, y)) {
       inventory.addIngredient("bagel.png");
       currIngredients[1] = currIngredients[0];
       currIngredients[0] = "bagel";
+      clickBagel=true;
     } else if (onCereal(x, y)) {
       inventory.addIngredient("cereal.png");
       currIngredients[1] = currIngredients[0];
