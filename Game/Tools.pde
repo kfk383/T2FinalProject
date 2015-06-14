@@ -49,13 +49,13 @@ class Tools {
     }
   }
   void checkXY(int x, int y) {
-    if (onBoard()) {
+    if (onBoard(x, y)) {
       useBoard();
-    } else if (onIron()) {
+    } else if (onIron(x, y)) {
       useIron();
-    } else if (onToaster()) {
+    } else if (onToaster(x, y)) {
       useToaster();
-    } else if (onPot()) {
+    } else if (onPot(x, y)) {
       usePot();
     }
   }
