@@ -207,6 +207,8 @@ void mouseClicked() {
     destinationX = mouseX;
  }
  recipes.foodmove(mouseX,mouseY);
+ if(recipes.onLevelButton(mouseX,mouseY)){
+   level++;}
 }
 
 

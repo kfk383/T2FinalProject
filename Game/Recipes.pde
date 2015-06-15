@@ -1,9 +1,9 @@
 class Recipes {
-  boolean carrying, tool,cooking;
+  boolean carrying, tool;
   //click on ingredients, animation to show you clicked on the right ingredients, click on correct appliance, animation of ingredients cooking
   //first recipe: scrambled eggs(frying pan), boiled egg, cheese sandwich(need bread), pancakes, waffles,hashbrowns,cereal  
   PImage[] ingred;
-  PImage ing,plate,suction;
+  PImage ing,plate;
   Tools tools;
   
   void cook(){
@@ -11,7 +11,8 @@ class Recipes {
     textSize(20);
     text("Level "+level, 600,50);
    
-          if(level==0){ text("Let's boil an egg!",600,65);
+          if(level==0){ 
+            text("Let's boil an egg!",600,65);
           if(ingredients.checkInvent("egg")&&tools.checktool("Pot") ){
             
  text("The egg is in the pot!",20,80);
@@ -26,28 +27,14 @@ correctTool=true;
               image(pot,205,350);;
             text("level complete!", 600,90);
          aftercookinganim(); }
-}
-else if(currIngredients[0]!="egg"&&currIngredients[0]!=null){
+}else if(currIngredients[0]!="egg"&&currIngredients[0]!=null){
   text("that's not an egg!",20,100);
-}
-else if(toolsClicked[0]!="Pot" && toolsClicked[0]!=null){
+}else if(toolsClicked[0]!="Pot" && toolsClicked[0]!=null){
 text("boiled eggs aren't made there!",20,80);
       //one bug is that when you click o an ingredient it also says boiled eggs arent made there  
         }
           }
        
-       
-       /* else if(level==1){text("Let's make some cereal!",600,65); 
-    if(ingredients.checkInvent("milk")&&tools.checktool("Bowl")){
-  ing=loadImage("milkarray.png").get(0,0, 40,50); 
-image(ing,500,265);
-    text("level 2 completed!",600,90);    
-    }
-          
-}*/
-    // else if(level==1){
-   //text(    
-         
   }
 
     
@@ -59,7 +46,7 @@ void foodmove(int x, int y){
             image(ing,240-i*1,360);
 }
   }
-  //SET UP STATUS BAR BASED ON NUMBER OF CLICKS?
+  
 }
 void aftercookinganim(){
   frameRate(1);
@@ -70,12 +57,21 @@ image(plate,600,300);
 image(ing,670,320);
 frameRate(20);
 fill(130,30,30);
- rect(startX, startY, 100, 30);
+ rect(startX, startY, 150, 30);
+ //225,275
  fill(250,250,250);
-text("Start", 250, 295);
+text("Next Level", 250, 295);
+fill(50);
+text("You have complete Level "+level, 220, 250);
     //fill(0, 255, 204);
 
 }
+
+boolean onLevelButton(int x, int y){
+  if((!(x>=225&&x<=225+150))||(!(y>=275&&y<=275+30))){
+    return false;}
+    return true;
+  }
   }
 
 
