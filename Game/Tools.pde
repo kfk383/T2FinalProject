@@ -7,9 +7,9 @@ class Tools {
   int toasterW, toasterH;
   int bowlW, bowlH;
   int fryingpanW, fryingpanH;
-  int boardCount, ironCount, potCount, toasterCount, ovenCount, bowlCount, panCount;
-  int boardCX, ironCX, potCX, toasterCX, ovenCX, bowlCX, panCX;
-  int boardCY, ironCY, potCY, toasterCY, ovenCY, bowlCY, panCY;
+  int boardCount, ironCount, potCount, toasterCount, ovenCount, bowlCount, panCount; // countdown for tool usage (3 secs each);
+  int boardCX, ironCX, potCX, toasterCX, bowlCX, panCX; //x and y coordinates for the countdown of tool usage
+  int boardCY, ironCY, potCY, toasterCY, bowlCY, panCY;
   boolean usingBoard, usingIron, usingPot, usingToaster, usingBowl, usingFryingpan;
   color emptyS, fullS;
 
@@ -42,9 +42,61 @@ class Tools {
     bowlH=30;
     fryingpanW=100;
     fryingpanH=60;
+    boardCX = 775;
+    boardCY= 345;
+    ironCX = 370;
+    ironCY = 320;
+    potCX = 235;
+    potCY = 370;
+    toasterCX = 990;
+    toasterCY = 330;
+    bowlCX = 490;
+    bowlCY = 325;
+    panCX = 170;
+    panCY = 380;
   }
 
-  void updateTimer() {
+  void updateTimers() {
+    if (usingBoard) {
+      if (boardCount > 0) {
+      } else {
+        usingBoard = false;
+      }
+    }
+    if (usingIron) {
+      if (ironCount > 0) {
+      } else {
+        usingIron = false;
+      }
+    }
+    if (usingPot) {
+      if (potCount > 0) {
+        potCount--;
+      } else {
+        usingPot = false;
+      }
+    }
+    if (usingToaster) {
+      if (toasterCount > 0) {
+        toasterCount--;
+      } else {
+        usingToaster = false;
+      }
+    }
+    if (usingBowl) {
+      if (bowlCount > 0) {
+        bowlCount--;
+      } else {
+        usingBowl = false;
+      }
+    }
+    if (usingFryingpan) {
+      if (panCount > 0) {
+        panCount--;
+      } else {
+        usingFryingpan = false;
+      }
+    }
   }
 
   void go(int x, int y) {
@@ -183,45 +235,24 @@ class Tools {
     return false;
   }
   void drawTimers() {
-    if (usingBoard) {
-      if (boardCount > 0) {
-      } else {
-        usingBoard = false;
-      }
-    }
+    textSize(24);
     if (usingIron) {
-      if (ironCount > 0) {
-      } else {
-        usingIron = false;
-      }
-    }
-    if (usingPot) {
-      if (potCount > 0) {
-        potCount--;
-      } else {
-        usingPot = false;
-      }
+      text(ironCount, ironCX, ironCY);
     }
     if (usingToaster) {
-      if (toasterCount > 0) {
-        toasterCount--;
-      } else {
-        usingToaster = false;
-      }
+      text(toasterCount, toasterCX, toasterCY);
     }
-    if (usingBowl) {
-      if (bowlCount > 0) {
-        bowlCount--;
-      } else {
-        usingBowl = false;
-      }
+    if (usingBoard) {
+      text(boardCount, boardCX, boardCY);
+    }
+    if (usingPot) {
+      text(potCount, potCX, potCY);
     }
     if (usingFryingpan) {
-      if (panCount > 0) {
-        panCount--;
-      } else {
-        usingFryingpan = false;
-      }
+      text(panCount, panCX, panCY);
+    }
+    if (usingBowl) {
+      text(bowlCount, bowlCX, bowlCY);
     }
   }
 }

@@ -136,8 +136,8 @@ void draw() {
     bowl=loadImage("bowl.png");
     bowl.resize(50, 30);
     image(bowl, 480, 320);
-    if (time % 1000 == 0) {
-      tools.updateTimer();
+    if (time % 1000 < 30) {
+      tools.updateTimers();
     }
     tools.drawTimers();
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
