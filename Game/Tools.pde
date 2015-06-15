@@ -1,3 +1,4 @@
+///fix timer and incorporate them into levels. set up level 1,2,and 3 perfectly. format of instructions, bugs, animations, intermediate screens
 class Tools {
   int boardX, boardY, ironX, ironY, potX, potY, toasterX, toasterY, ovenX, ovenY, bowlX, bowlY, fryingpanX, fryingpanY;
   int boardW, boardH;
@@ -18,10 +19,10 @@ class Tools {
     boardY = 340;
     boardW = 80;
     boardH = 15;
-    ironX = 350;
-    ironY = 290;
-    ironW = 65;
-    ironH = 80;
+    ironX = 345;
+    ironY = 280;
+    ironW = 76;
+    ironH = 100;
     toasterX = 950;
     toasterY = 320;
     bowlX=480;
@@ -55,26 +56,36 @@ class Tools {
     panCX = 170;
     panCY = 380;
   }
-
-  void updateTimers() {
+/*
+ void updateTimers() {
     if (usingBoard) {
       if (boardCount > 0) {
+        boardCount--; 
       } else {
         usingBoard = false;
       }
     }
-    if (usingIron) {
+    if (usingIron) { 
       if (ironCount > 0) {
+        ironCount--;
       } else {
         usingIron = false;
       }
     }
     if (usingPot) {
+     // int m=millis();
+      for(int i=0;i<3;i++){
       if (potCount > 0) {
         potCount--;
       } else {
         usingPot = false;
       }
+      
+    }
+    for(int i=millis();m-i>=3000;i=millis()){
+     fill(50);
+      text("fail",0,40);
+    }
     }
     if (usingToaster) {
       if (toasterCount > 0) {
@@ -91,13 +102,18 @@ class Tools {
       }
     }
     if (usingFryingpan) {
-      if (panCount > 0) {
+for(int i=0;i<3;i++){
+
+ if (panCount > 0) {
         panCount--;
       } else {
         usingFryingpan = false;
       }
-    }
+}}
+     
   }
+  
+  */
 
   void go(int x, int y) {
     //status bar? use two rectangles attached to one another with different colors for each bar.
@@ -122,6 +138,7 @@ class Tools {
       useIron();
       toolsClicked[1]=toolsClicked[0];
       toolsClicked[0]="Iron";
+      text(toolsClicked[0],0,0);
     } else if (onToaster(x, y)) {
       useToaster();
       toolsClicked[1]=toolsClicked[0];
@@ -199,12 +216,14 @@ class Tools {
     boolean value = true;
     if (!(x >= ironX && x <= ironX + ironW)) {
       value = false;
+      text("falsey",0,0);
     } else if (!(y >= ironY && y <= ironY + ironH)) {
       value = false;
+      text("falsey",0,0);
     }
     return value;
   }
-  boolean onToaster(int x, int y) {
+  boolean onToaster(int x, int y) {//345,280,76,100
     boolean value = true;
     if (!(x >= toasterX && x <= toasterX + toasterW)) {
       value = false;
@@ -236,24 +255,32 @@ class Tools {
   }
   void drawTimers() {
     textSize(24);
+    if(mouseCount==correctmousecount||mouseCount==correctmousecount+1||mouseCount==correctmousecount-1){
+      fill(26,255,0);
+    }
+   else if(mouseCount<correctmousecount-1){
+      fill(0,255,238);}
+   else if(mouseCount>correctmousecount+1){
+        fill(255,30,0);}
     if (usingIron) {
-      text(ironCount, ironCX, ironCY);
+      text(mouseCount, ironCX, ironCY);
     }
     if (usingToaster) {
-      text(toasterCount, toasterCX, toasterCY);
+      text(mouseCount, toasterCX, toasterCY);
     }
     if (usingBoard) {
-      text(boardCount, boardCX, boardCY);
+      text(mouseCount, boardCX, boardCY);
     }
     if (usingPot) {
-      text(potCount, potCX, potCY);
+      text(mouseCount, potCX, potCY);
     }
     if (usingFryingpan) {
-      text(panCount, panCX, panCY);
+      text(mouseCount, panCX, panCY);
     }
     if (usingBowl) {
-      text(bowlCount, bowlCX, bowlCY);
+      text(mouseCount, bowlCX, bowlCY);
     }
   }
-}
+  }
+
 

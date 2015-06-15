@@ -35,11 +35,11 @@ boolean clickCheese, clickBagel, clickCereal, clickOatmeal,clickMilk;
 String[] currIngredients = new String[2];
 
 //statusbar things/cooking controls
-boolean correctIng=false;
+boolean correctIng=false;//hm
 int mouseCount;
 boolean correctTool;
 int correctmousecount;
-boolean tempmousecount;
+boolean tempmousecount,completeGame,finalLev;
 
 
 //Classes Implemented
@@ -148,7 +148,7 @@ image(bowl,480,320);
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
     player.drawImage();
     player.move(destinationX);
-  // tools.drawTimers();
+   tools.drawTimers();
     recipes.cook();
   } else if (mode == SETTINGS) {
     displaySettings();
@@ -224,12 +224,18 @@ void mouseClicked() {
    mouseCount=0;
 }
 if(mouseX>=1100&&mouseX<=1170&&mouseY>=10&&mouseY<=40){
-  level=0;}
-// rect(1100,10,70,30); this is if restart is clicked on
+  level=0;
+mouseCount=0;
+tempmousecount=false;
 
-if(mouseX>=1020&&mouseX<=1090&&mouseY>=10&&mouseY<=40){
+//inventory.emptying();
+// rect(1100,10,70,30); this is if restart is clicked on
+}
+if(mouseX>=1020&&mouseX<=1090&&mouseY>=10&&mouseY<=40&&level==0){
 //rect(1020,10,70,30); clicked on done
 tempmousecount=true;}
+else if(mouseX>=1020&&mouseX<=1090&&mouseY>=10&&mouseY<=40&&level==1){
+  completeGame=true;}
 }
 
 

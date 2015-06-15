@@ -174,6 +174,8 @@ class Ingredients {
     }
     return value;
   }
+  
+    //
   void drawImages() {
     image(cheese, cheeseX, cheeseY);
     image(oatmeal, oatmealX, oatmealY);
