@@ -8,7 +8,7 @@ class Tools {
   int bowlW, bowlH;
   int fryingpanW, fryingpanH;
   int boardCount, ironCount, potCount, toasterCount, ovenCount, bowlCount, panCount;
-  int boardCX, ironCS, potCX, toasterCX, ovenCX, bowlCX, panCX;
+  int boardCX, ironCX, potCX, toasterCX, ovenCX, bowlCX, panCX;
   int boardCY, ironCY, potCY, toasterCY, ovenCY, bowlCY, panCY;
   boolean usingBoard, usingIron, usingPot, usingToaster, usingBowl, usingFryingpan;
   color emptyS, fullS;
@@ -207,13 +207,6 @@ class Tools {
         toasterCount--;
       } else {
         usingToaster = false;
-      }
-    }
-    if (usingOven) {
-      if (ovenCount > 0) {
-        ovenCount--;
-      } else {
-        usingOven = false;
       }
     }
     if (usingBowl) {
