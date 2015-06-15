@@ -13,7 +13,7 @@ int level=0;
 
 //Images
 PImage menuImg, startImg, front, right, left;
-PImage iron, pot, fryingpan,bowl; 
+PImage iron, pot, fryingpan, bowl; 
 PImage egg, cheese, bagel, cereal, oatmeal, milk; 
 PImage[] eggn;
 boolean carrying, tool;
@@ -27,18 +27,18 @@ int INSTRUCTIONS = 3;
 //toolthings
 //boolean correctTool;
 String[] toolsClicked=new String[2];
-int time;
 
 //ingredients at hand
 boolean clickEgg;
-boolean clickCheese, clickBagel, clickCereal, clickOatmeal,clickMilk;
+boolean clickCheese, clickBagel, clickCereal, clickOatmeal, clickMilk;
 String[] currIngredients = new String[2];
 
 //statusbar things/cooking controls
 boolean correctIng=false;
 int mouseCount;
 boolean correctTool;
-
+boolean lvlcomplete;
+int time;
 
 //Classes Implemented
 Player player; 
@@ -78,7 +78,7 @@ void setup() {
 }
 //===========================================DRAW FUNCTION=====================================
 void draw() {
-time = millis();
+  time = millis();
   if (mode == MENU) {
     updateMouse(mouseX, mouseY);
     background(menuImg);
@@ -125,17 +125,21 @@ time = millis();
   } else if (mode == START) {
     background(startImg);
     fryingpan=loadImage("fryingpan.png");
-    fryingpan.resize(100,60);
-   image(fryingpan, 120,355);
+    fryingpan.resize(100, 60);
+    image(fryingpan, 120, 355);
     iron = loadImage("iron.png");
     iron.resize(76, 100);
     image(iron, 345, 280);
     pot = loadImage("pot.png");
     pot.resize(87, 65);
     image(pot, 205, 350);
-bowl=loadImage("bowl.png");
-bowl.resize(50,30);
-image(bowl,480,320);
+    bowl=loadImage("bowl.png");
+    bowl.resize(50, 30);
+    image(bowl, 480, 320);
+    if (time % 1000 == 0) {
+      tools.updateTimer();
+    }
+    tools.drawTimers();
     ingredients.drawImages(); //draws the ingredients on the shelves, as well as the inventory
     player.drawImage();
     player.move(destinationX);
@@ -204,12 +208,10 @@ void keyPressed() {
 void mouseClicked() {
   tools.checkXY(mouseX, mouseY);
   ingredients.checkMouse(mouseX, mouseY);
-  
+
   if (mouseX > 205 && mouseX < 1075) {
     destinationX = mouseX;
- }
- recipes.foodmove(mouseX,mouseY);
+  }
+  recipes.foodmove(mouseX, mouseY);
 }
-
-
 

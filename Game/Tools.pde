@@ -1,18 +1,16 @@
 class Tools {
-  int boardX, boardY, ironX, ironY, potX, potY, toasterX, toasterY, ovenX, ovenY,bowlX,bowlY,fryingpanX,fryingpanY;
+  int boardX, boardY, ironX, ironY, potX, potY, toasterX, toasterY, ovenX, ovenY, bowlX, bowlY, fryingpanX, fryingpanY;
   int boardW, boardH;
   int ironW, ironH;
   int potW, potH;
   int ovenW, ovenH;
   int toasterW, toasterH;
   int bowlW, bowlH;
-  int fryingpanW,fryingpanH;
-  int statusW, statusH;
-  int bStatusX, bStatusY;
-  int iStatusX, iStatusY;
-  int pStatusX, pStatusY;
-  int tStatusX, tStatusY;
-  boolean usingBoard, usingIron, usingPot, usingToaster,usingBowl,usingFryingpan;
+  int fryingpanW, fryingpanH;
+  int boardCount, ironCount, potCount, toasterCount, ovenCount, bowlCount, panCount;
+  int boardCX, ironCS, potCX, toasterCX, ovenCX, bowlCX, panCX;
+  int boardCY, ironCY, potCY, toasterCY, ovenCY, bowlCY, panCY;
+  boolean usingBoard, usingIron, usingPot, usingToaster, usingBowl, usingFryingpan;
   color emptyS, fullS;
 
   Tools() {
@@ -26,10 +24,10 @@ class Tools {
     ironH = 80;
     toasterX = 950;
     toasterY = 320;
-bowlX=480;
-bowlY=320;
-fryingpanX=120;
-fryingpanY=355;
+    bowlX=480;
+    bowlY=320;
+    fryingpanX=120;
+    fryingpanY=355;
     toasterW = 125;
     toasterH = 60;
     potX = 210;
@@ -46,12 +44,14 @@ fryingpanY=355;
     fryingpanH=60;
   }
 
+  void updateTimer() {
+  }
+
   void go(int x, int y) {
     //status bar? use two rectangles attached to one another with different colors for each bar.
     checkXY(x, y);
-   
-    if (usingIron) {
 
+    if (usingIron) {
     }
     if (usingToaster) {
     }
@@ -61,79 +61,82 @@ fryingpanY=355;
     }
   }
   void checkXY(int x, int y) {
-    
+
     if (onBoard(x, y)) {
       useBoard();
-       toolsClicked[1]=toolsClicked[0];
-       toolsClicked[0]="Board";
-    }
-      
- else if (onIron(x, y)) {
+      toolsClicked[1]=toolsClicked[0];
+      toolsClicked[0]="Board";
+    } else if (onIron(x, y)) {
       useIron();
-       toolsClicked[1]=toolsClicked[0];
-       toolsClicked[0]="Iron";
+      toolsClicked[1]=toolsClicked[0];
+      toolsClicked[0]="Iron";
     } else if (onToaster(x, y)) {
       useToaster();
       toolsClicked[1]=toolsClicked[0];
-       toolsClicked[0]="Toaster";
+      toolsClicked[0]="Toaster";
     } else if (onPot(x, y)) {
       usePot();
       toolsClicked[1]=toolsClicked[0];
-       toolsClicked[0]="Pot";
-    }
-    else if(onBowl(x,y)){
+      toolsClicked[0]="Pot";
+    } else if (onBowl(x, y)) {
       useBowl();
       toolsClicked[1]=toolsClicked[0];
-       toolsClicked[0]="Bowl";
-       text(toolsClicked[0],100,70);
-text("bowlingwut",30,80);
-  }
-  else if(onFryingpan(x,y)){
-    useFryingpan();
-    toolsClicked[1]=toolsClicked[0];
-    toolsClicked[0]="Fryingpan";
-  }
+      toolsClicked[0]="Bowl";
+      text(toolsClicked[0], 100, 70);
+      text("bowlingwut", 30, 80);
+    } else if (onFryingpan(x, y)) {
+      useFryingpan();
+      toolsClicked[1]=toolsClicked[0];
+      toolsClicked[0]="Fryingpan";
+    }
   }
   void useIron() {
     usingIron = true;
+    ironCount = 3;
   }
   void useToaster() {
     usingToaster = true;
+    toasterCount = 3;
   }
   void useBoard() {
     usingBoard = true;
+    boardCount = 3;
   }
   void usePot() {
     usingPot = true;
+    potCount = 3;
   }
-  void useBowl(){
-    usingBowl=true;
+  void useBowl() {
+    usingBowl = true;
+    bowlCount = 3;
   }
-  void useFryingpan(){
-    usingFryingpan=true;
+  void useFryingpan() {
+    usingFryingpan = true;
+    panCount = 3;
   }
-  boolean onBowl(int x, int y){
-    boolean value=true;
-    if(!(y>=bowlY&&y<=boardY+boardH)){
-      value=false;
+  boolean onBowl(int x, int y) {
+    boolean value = true;
+    if (!(y >= bowlY && y <= boardY + boardH)) {
+      value = false;
+    } else if (!(x >= boardX && x <= boardX + boardW)) {
+      value = false;
     }
-    else if(!(x>=boardX&&x<=boardX+boardW)){
-      value=false;}
     return value;
   }
   //506,331
   //480,420,50,30
-  boolean onFryingpan(int x, int y){
+  boolean onFryingpan(int x, int y) {
     boolean value= true;
-    if(!(y>=fryingpanY&&y<=fryingpanY+fryingpanH)){
-      value=false;}
-      else if(!(x>=fryingpanX&&x<=fryingpanX+fryingpanW)){
-        return false;}
-      return value;
+    if (!(y >= fryingpanY && y <= fryingpanY + fryingpanH)) {
+      value=false;
+    } else if (!(x >= fryingpanX && x <= fryingpanX + fryingpanW)) {
+      return false;
+    }
+    return value;
   }
   boolean onBoard(int x, int y) {
     boolean value = true;
-    if (!(x >= boardX && x <= boardX+boardW)) {
+    if (!(x >= boardX && x <= boardX + boardW)) {
       value = false;
     } else if (!(y >= boardY && y <= boardY + boardH)) {
       value = false;
@@ -142,7 +145,7 @@ text("bowlingwut",30,80);
   }
   boolean onIron(int x, int y) {
     boolean value = true;
-    if (!(x >= ironX && x <= ironX+ironW)) {
+    if (!(x >= ironX && x <= ironX + ironW)) {
       value = false;
     } else if (!(y >= ironY && y <= ironY + ironH)) {
       value = false;
@@ -151,7 +154,7 @@ text("bowlingwut",30,80);
   }
   boolean onToaster(int x, int y) {
     boolean value = true;
-    if (!(x >= toasterX && x <= toasterX+toasterW)) {
+    if (!(x >= toasterX && x <= toasterX + toasterW)) {
       value = false;
     } else if (!(y >= toasterY && y <= toasterY + toasterH)) {
       value = false;
@@ -160,23 +163,73 @@ text("bowlingwut",30,80);
   }
   boolean onPot(int x, int y) {
     boolean value = true;
-    if (!(x >= potX && x <= potX+potW)) {
+    if (!(x >= potX && x <= potX + potW)) {
       value = false;
     } else if (!(y >= potY && y <= potY + potH)) {
       value = false;
     }
     return value;
   }
-  boolean checktool(String t){
-    
-    for(String s:toolsClicked){
-          if(s!=null){ 
-     if(s.equals(t)){ 
-       return true;
+  boolean checktool(String t) {
+
+    for (String s : toolsClicked) {
+      if (s != null) { 
+        if (s.equals(t)) { 
+          return true;
+        }
+      }
+      return false;
     }
+    return false;
+  }
+  void drawTimers() {
+    if (usingBoard) {
+      if (boardCount > 0) {
+      } else {
+        usingBoard = false;
+      }
     }
-   return false;
-   }
-   return false;
+    if (usingIron) {
+      if (ironCount > 0) {
+      } else {
+        usingIron = false;
+      }
+    }
+    if (usingPot) {
+      if (potCount > 0) {
+        potCount--;
+      } else {
+        usingPot = false;
+      }
+    }
+    if (usingToaster) {
+      if (toasterCount > 0) {
+        toasterCount--;
+      } else {
+        usingToaster = false;
+      }
+    }
+    if (usingOven) {
+      if (ovenCount > 0) {
+        ovenCount--;
+      } else {
+        usingOven = false;
+      }
+    }
+    if (usingBowl) {
+      if (bowlCount > 0) {
+        bowlCount--;
+      } else {
+        usingBowl = false;
+      }
+    }
+    if (usingFryingpan) {
+      if (panCount > 0) {
+        panCount--;
+      } else {
+        usingFryingpan = false;
+      }
+    }
   }
 }
+
