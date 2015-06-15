@@ -67,12 +67,6 @@ plate=loadImage("plate.png");
 plate.resize(90,40);
 image(plate,70,428);
 image(ing,90,432);
-suction=loadImage("platesuction.png");
-image(suction,0,0);
-for(int i=0;i<60;i++){
-  image(plate,70,428-i*3);
-  image(ing,90,432-i*3);
-}
 frameRate(20);
 level++;
 
