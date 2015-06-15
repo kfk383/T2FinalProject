@@ -37,7 +37,7 @@ String[] currIngredients = new String[2];
 boolean correctIng=false;
 int mouseCount;
 boolean correctTool;
-boolean lvlcomplete;
+
 
 //Classes Implemented
 Player player; 

@@ -1,9 +1,9 @@
 class Recipes {
-  boolean carrying, tool;
+  boolean carrying, tool,cooking;
   //click on ingredients, animation to show you clicked on the right ingredients, click on correct appliance, animation of ingredients cooking
   //first recipe: scrambled eggs(frying pan), boiled egg, cheese sandwich(need bread), pancakes, waffles,hashbrowns,cereal  
   PImage[] ingred;
-  PImage ing,plate;
+  PImage ing,plate,suction;
   Tools tools;
   
   void cook(){
@@ -22,6 +22,8 @@ correctTool=true;
 
     //SLOW DOWN ANIMATION 
             if(mouseCount>=4){
+              pot.resize(87,65);
+              image(pot,205,350);;
             text("level complete!", 600,90);
          aftercookinganim(); }
 }
@@ -60,11 +62,19 @@ void foodmove(int x, int y){
   //SET UP STATUS BAR BASED ON NUMBER OF CLICKS?
 }
 void aftercookinganim(){
+  frameRate(1);
 plate=loadImage("plate.png");
 plate.resize(90,40);
-image(plate,100,428);
-image(ing,125,432);
-
+image(plate,70,428);
+image(ing,90,432);
+suction=loadImage("platesuction.png");
+image(suction,0,0);
+for(int i=0;i<60;i++){
+  image(plate,70,428-i*3);
+  image(ing,90,432-i*3);
+}
+frameRate(20);
+level++;
 
 }
   }
