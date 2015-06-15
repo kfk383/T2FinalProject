@@ -32,7 +32,12 @@ class Inventory {
   
   }
 
-
+void emptying(){
+  for(int i=0;i<2;i++){
+    if(currIngredients[i]!=null){
+    currIngredients[i]=null;
+  }}
+}
   
   
   void drawImages(){
