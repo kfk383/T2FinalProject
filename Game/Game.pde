@@ -27,6 +27,7 @@ int INSTRUCTIONS = 3;
 //toolthings
 //boolean correctTool;
 String[] toolsClicked=new String[2];
+int time;
 
 //ingredients at hand
 boolean clickEgg;
@@ -77,6 +78,7 @@ void setup() {
 }
 //===========================================DRAW FUNCTION=====================================
 void draw() {
+time = millis();
   if (mode == MENU) {
     updateMouse(mouseX, mouseY);
     background(menuImg);
