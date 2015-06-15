@@ -63,12 +63,17 @@ void foodmove(int x, int y){
 }
 void aftercookinganim(){
   frameRate(1);
+  background(250,250,250);
 plate=loadImage("plate.png");
-plate.resize(90,40);
-image(plate,70,428);
-image(ing,90,432);
+plate.resize(150,70);
+image(plate,600,300);
+image(ing,670,320);
 frameRate(20);
-level++;
+fill(130,30,30);
+ rect(startX, startY, 100, 30);
+ fill(250,250,250);
+text("Start", 250, 295);
+    //fill(0, 255, 204);
 
 }
   }

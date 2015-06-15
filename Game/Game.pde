@@ -88,7 +88,7 @@ void draw() {
       fill(130, 0, 0);
     }
     rect(startX, startY, buttonW, buttonH);
-    if (! onSettings) {
+    if (! onSettings) { 
       fill(100, 0, 0);
     } else if (clicked) {
       fill(130, 30, 30);
