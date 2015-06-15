@@ -12,7 +12,8 @@ class Recipes {
     text("Level "+level, 600,50);
    
           if(level==0){ 
-            text("Let's boil an egg!",600,65);
+            fill(50);
+            text("Let's boil an egg!",550,65);
           if(ingredients.checkInvent("egg")&&tools.checktool("Pot") ){
             
  text("The egg is in the pot!",20,80);
@@ -57,18 +58,18 @@ image(plate,600,300);
 image(ing,670,320);
 frameRate(20);
 fill(130,30,30);
- rect(startX, startY, 150, 30);
+ rect(650,150, 150, 30);
  //225,275
  fill(250,250,250);
-text("Next Level", 250, 295);
+text("Next Level", 670, 170);
 fill(50);
-text("You have complete Level "+level, 220, 250);
+text("You have completed Level "+level, 600, 100);
     //fill(0, 255, 204);
 
 }
 
 boolean onLevelButton(int x, int y){
-  if((!(x>=225&&x<=225+150))||(!(y>=275&&y<=275+30))){
+  if((!(x>=650&&x<=650+150))||(!(y>=150&&y<=150+30))){
     return false;}
     return true;
   }

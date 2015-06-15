@@ -208,7 +208,8 @@ void mouseClicked() {
  }
  recipes.foodmove(mouseX,mouseY);
  if(recipes.onLevelButton(mouseX,mouseY)){
-   level++;}
+   level++;
+}
 }
 
 
